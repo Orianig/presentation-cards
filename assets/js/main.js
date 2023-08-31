@@ -5,19 +5,29 @@ let influencersList = [];
 window.addEventListener("load", async () => {
     // * get influencers info
     await getInfluencerList();
-    console.log(2);
+    generateInfluencerListHTML();
 });
 
 const getInfluencerList = async () => {
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
+        // * simulate influencer list
         influencersList = [
             data, data, data, data, data, data,
         ];
-        console.log(influencersList);
-        console.log(1);
     } catch (error) {
         console.error('Error fetching data:', error);
     }
+}
+
+const generateInfluencerListHTML = () => {
+    const cardsContainerHTML = document.getElementById('cards-wrapper');
+    influencersList.map(influencer => {
+        let cardHTML = document.createElement('article');
+        cardHTML.classList.add('custom-card', 'd-flex', 'flex-row', 'position-relative');
+        cardHTML.innerHTML = 'kaka'
+        cardsContainerHTML.appendChild(cardHTML);
+    });
+
 }
