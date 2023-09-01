@@ -1,0 +1,12 @@
+body,
+html {
+    background: var(--c-primary);
+    color: var(--c-font);
+    font-size: 16px;
+    font-family:'Mulish', sans-serif;
+    margin: 0;
+}
+
+.container-fluid{
+    height: 100vh;
+}
