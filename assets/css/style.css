@@ -94,9 +94,15 @@ font-size: 12px;
             }
   
 .text-data{
-    font-size: .7rem;
+    font-size: .6rem;
     font-weight: normal;
-    margin-bottom: .4rem;
+    margin-bottom: .3rem;
+}
+
+.text-icons {
+    width: .8rem;
+    vertical-align: middle;
+    margin-right: 0.2rem;
 }
 
 .custom-text > div  > p{
