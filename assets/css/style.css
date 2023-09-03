@@ -1,133 +1,121 @@
 :root {
-    --c-primary: #E3E3DF;
-    --c-primary-dark:#CECEC7;
-    --c-secondary: #E04B28;
-    --c-tertiary: #1B5861;
-    --c-font: #494747;
+  --c-primary: #e3e3df;
+  --c-primary-dark: #cecec7;
+  --c-secondary: #e04b28;
+  --c-tertiary: #1b5861;
+  --c-font: #494747;
 }
 
 body,
 html {
-    background: var(--c-primary);
-    color: var(--c-font);
-    font-size: 16px;
-    font-family:'Mulish', sans-serif;
-    margin: 0;
+  background: var(--c-primary);
+  color: var(--c-font);
+  font-size: 16px;
+  font-family: "Mulish", sans-serif;
+  margin: 0;
 }
 
-.custom-card{
-    background: rgba(255, 255, 255, 0.4);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(13.9px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    height: 12rem;
-    width: 20rem;
-    transition: all .2s ease-out;
+.custom-card {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.9px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  height: 12rem;
+  width: 20rem;
+  transition: all 0.2s ease-out;
 }
-.custom-card:hover{
-    transform: scale(1.04);
+.custom-card:hover {
+  transform: scale(1.04);
 }
 
- 
 .picture-container {
-
-display: flex;
-justify-content: center;
-align-items: center;
-    height: 60%;
-    width: 95%;
-    margin-top:0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+  width: 95%;
+  margin-top: 0.5rem;
 }
 
-.picture-container figure{
-    border-radius: 20px 50px 20px 50px;
-    border: .1rem solid var(--c-secondary);
-    position:relative;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    cursor: pointer;
-    box-shadow: -1px 7px 9px rgba(0,0,0,0.50);
+.picture-container figure {
+  border-radius: 20px 50px 20px 50px;
+  border: 0.1rem solid var(--c-secondary);
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: -1px 7px 9px rgba(0, 0, 0, 0.5);
 }
 
-.picture-container figure img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: all 500ms ease-out;
-    will-change: transform;
+.picture-container figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 500ms ease-out;
+  will-change: transform;
 }
 
-.picture-container figure .text-picture{
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(75, 76, 77, 0.628);
-    transition: all 500ms ease-out;
-    opacity: 0;
-    visibility: hidden;
-    text-align: center;
+.picture-container figure .text-picture {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(75, 76, 77, 0.628);
+  transition: all 500ms ease-out;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
 }
-  
+
 .picture-container figure:hover .text-picture {
-opacity: 1;
-visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 
 .picture-container figure:hover > .text-picture p {
-margin-top: 40%;
-margin-bottom: 20%;
-    }
+  margin-top: 40%;
+  margin-bottom: 20%;
+}
 
-    .picture-container figure:hover > img {
-transform: scale(1.3);
-            }
+.picture-container figure:hover > img {
+  transform: scale(1.3);
+}
 
+.picture-container figure .text-picture p {
+  color: var(--c-primary);
+  font-weight: 200;
+  transition: all 400ms ease-out;
+  font-size: 12px;
+}
 
-    .picture-container figure .text-picture p {
-color: var(--c-primary);
-font-weight: 200;
-        transition: all 400ms ease-out;
-font-size: 12px;
-            }
-  
-.text-data{
-    font-size: .6rem;
-    font-weight: normal;
-    margin-bottom: .3rem;
+.text-data {
+  font-size: 0.6rem;
+  font-weight: normal;
+  margin-bottom: 0.3rem;
 }
 
 .text-icons {
-    width: .8rem;
-    vertical-align: middle;
-    margin-right: 0.2rem;
+  width: 0.8rem;
+  vertical-align: middle;
+  margin-right: 0.2rem;
 }
 
-.custom-text > div  > p{
-    font-size: .8rem;
-    font-weight: normal;
-    margin-bottom: 0rem;
-padding-left: .4rem;
-
-}  
-.custom-text > div > i, .custom-card > div  > i{
-    font-size: .7rem;
-} 
+.custom-text > div > p {
+  font-size: 0.8rem;
+  font-weight: normal;
+  margin-bottom: 0rem;
+  padding-left: 0.4rem;
+}
+.custom-text > div > i,
+.custom-card > div > i {
+  font-size: 0.7rem;
+}
 
 .custom-flex-items {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: .4rem;
-  }
-
-
-
-  
-  
-  
-  
-  
-  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}

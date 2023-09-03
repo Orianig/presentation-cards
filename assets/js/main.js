@@ -67,7 +67,7 @@ imageElement.addEventListener('click', () => {
         influencerInfoHTML.innerHTML = `<p class='text-data'><img class='text-icons' src='./assets/img/instagram.png' alt='Icono'>${influencer.influcard.username}</p><p class='text-data mb-0'>${influencer.influcard.gender === 1 ? 'Hombre' : 'Mujer'}, ${influencer.influcard.age} años</p>
         <p class='text-data'><img class='text-icons' src='./assets/img/espana.png' alt='Icono'>${influencer.influcard.country  === 'ES' ? 'España' :""}</p><p class='text-data mb-0' >${influencerInterest}...</p>`;
 
-        cardLeftSideHTML.appendChild(pictureHTML);
+    cardLeftSideHTML.appendChild(pictureHTML);
         cardLeftSideHTML.appendChild(influencerInfoHTML);
         cardHTML.appendChild(cardLeftSideHTML);
 

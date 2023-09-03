@@ -10,10 +10,13 @@
     <link rel="icon" href="../img/users-solid.svg" type="image/png" />
     <!-- Bootstrap -->
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-      crossorigin="anonymous"
+    />
+    <!-- * From here bootstrap grid -->
+    <link
+      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+      rel="stylesheet"
     />
     <!-- FontAwesome -->
     <link
@@ -30,85 +33,117 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <script src="../js/details.js"></script>
   </head>
+
   <body>
-    <section class="container-fluid p-2 h-100">
-      <article class="customized-rows h-100">
-        <!-- TOP -->
-        <div class="header row d-flex justify-content-between ">
+    <div class="container-fluid">
+      <!-- HEADER -->
+      <header class="d-flex flex-wrap justify-content-between mt-4">
         <!-- Columna 1 (en dispositivos móviles, se coloca primero) -->
-        <div class="h-100 row col-12 col-md-3 order-0 order-md-0 position-relative ">
-          <div class="col-6 ">
-          <div class="position-absolute top-0 start-1  ">
-            <img
-            class="icon-social-media"
-            src="../img/instagram circle.png"
-            alt="..."
-          />
+        <div class="d-flex col-6 col-md-4 order-0 order-md-0">
+          <div class="col-6 col-md-2">
+            <figure class="picture-container position-relative">
+              <img
+                class="picture-profile"
+                src="https://concepto.de/wp-content/uploads/2015/03/naturaleza-medio-ambiente-e1505407093531.jpeg"
+                alt="..."
+              />
+              <img
+                class="icon-social-media position-absolute top-0 start-0"
+                src="../img/instagram circle.png"
+                alt="..."
+              />
+            </figure>
           </div>
-          <figure class="picture-container"> 
-          <img
-          class=""
-          src="https://concepto.de/wp-content/uploads/2015/03/naturaleza-medio-ambiente-e1505407093531.jpeg"
-          alt="..."
-        />
-          </figure>
+          <div class="col-6 col-md-8 d-flex flex-column justify-content-start">
+            <p class="text-data">influencerName</p>
+            <div class="d-flex flex-row">
+              <img class="text-icons" src="../img/instagram.png" alt="Icono" />
+              <p class="text-data">Username</p>
+            </div>
+            <div class="d-flex flex-row">
+              <img class="text-icons" src="../img/espana.png" alt="Icono" />
+              <p class="text-data">
+                PAIS -
+                <i class="fa-solid fa-venus">
+                  <i class="fa-solid fa-mars"> </i
+                ></i>
+                sexo, edad
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="col-6 d-flex justify-content-start">
-<h1>HOLA</h1>
-        </div>
-      </div>
         <!-- Columna 2 (en dispositivos móviles, se coloca debajo de las columnas 1 y 3) -->
-        <div class="col-12 col-md-3 order-2 order-md-1 row">
-<div class="col-4">
-  <h1>HOLA</h1>
-</div>
-<div class="col-4">
-  <h1>HOLA</h1>
-</div>
-<div class="col-4">
-  <h1>HOLA</h1>
-</div>
+        <div class="col-12 col-md-4 order-2 order-md-1 row">
+          <div class="col-4">
+            <h1>1</h1>
+          </div>
+          <div class="col-4">
+            <h1>2</h1>
+          </div>
+          <div class="col-4">
+            <h1>3</h1>
+          </div>
         </div>
         <!-- Columna 3 (en dispositivos móviles, se coloca segundo) -->
-        <div class="col-12 col-md-4 order-1 order-md-2">
+        <div class="col-6 col-md-4 order-1 order-md-2">
           <div class="d-flex flex-column justify-content-end">
-            <h4 class="d-flex justify-content-end">HOLA</h4>
-            <h4 class="d-flex justify-content-end">HOLA</h4>
-            <h4 class="d-flex justify-content-end">HOLA</h4>
+            <h6 class="d-flex justify-content-end">Salir</h6>
+            <h6 class="d-flex justify-content-end">Descragar influcard</h6>
+            <h6 class="d-flex justify-content-end">Ver perfil</h6>
+            <h6 class="d-flex justify-content-end">Datos actualizados</h6>
           </div>
         </div>
-        </div>
-<!-- BODY -->
-        <div class="body-container bg-secondary row d-flex justify-content-between h-100 p-2">       
+      </header>
+      <!-- BODY -->
+      <div class="bg-secondary grid">
         <!-- I COL -->
-        <div class="col-12 col-md-4 order-3 order-md-3">
-          AUDIENCIA
-          <div class="bg-danger">a</div>
-          <div class="bg-primary">b</div>
-          <div class="bg-danger">c</div>
-          <div class="row">
-            <div class="col-12 col-md-6 bg-primary"">Columna 1</div>
-            <div class="col-12 col-md-6 bg-danger"">Columna 2</div>
+        <div class="g-col-12 g-col-md-4 grid">
+          <div class="g-col-12 card d-flex align-items-center gap-2">
+            <span class="circle-element">
+              <i class="text-icon-color fa-solid fa-users"></i> </span
+            >AUDIENCIA
           </div>
+
+          <div class="card g-col-12">
+            <h1 class="col-4">HOLA</h1>
+            <h1 class="col-4">HOLA</h1>
+            <h1 class="col-4">HOLA</h1>
+          </div>
+
+          <div class="card g-col-12">a</div>
+
+          <div class="card g-col-6">grafico 1</div>
+          <div class="card g-col-6">grafico 2</div>
         </div>
         <!-- II COL -->
-        <div class="col-12 col-md-4 order-4 order-md-4">PUBLICACIONES
-            <div class="bg-danger">a</div>
-            <div class="bg-primary">b</div>
-            <div class="bg-danger">c</div>
-            <div class="bg-primary">d</div>
+        <div class="g-col-12 g-col-md-4 d-flex flex-column gap-1">
+          <div class="card d-flex align-items-center gap-2">
+            <div class="circle-element">
+              <i class="text-icon-color fa-solid fa-camera"></i>
+            </div>
+            PUBLICACIONES
+          </div>
+          <div class="card">a</div>
+          <div class="card">b</div>
+          <div class="card">c</div>
+          <div class="card">d</div>
         </div>
         <!-- III COL -->
-        <div class="col-12 col-md-4 order-5 order-md-5">DESEMPEÑO
-            <div class="bg-danger">a</div>
-            <div class="bg-primary">b</div>
-            <div class="bg-danger">c</div>
-            <div class="bg-primary">d</div>
-            <div class="bg-danger">e</div>
-            <div class="bg-primary">f</div>
+        <div class="g-col-12 g-col-md-4 d-flex flex-column gap-1">
+          <div class="card d-flex align-items-center gap-2">
+            <div class="circle-element">
+              <i class="text-icon-color fa-solid fa-chart-line"></i>
+            </div>
+            DESEMPEÑO
+          </div>
+          <div class="card">a</div>
+          <div class="card">b</div>
+          <div class="card">c</div>
+          <div class="card">d</div>
+          <div class="card">e</div>
+          <div class="card">f</div>
         </div>
       </div>
-      </article>
-    </section>
+    </div>
   </body>
 </html>

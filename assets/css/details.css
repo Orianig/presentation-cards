@@ -1,39 +1,62 @@
+:root {
+  --bs-gap: 0.25rem;
+}
+
 body,
 html {
-    background: var(--c-primary);
-    color: var(--c-font);
-    font-size: 16px;
-    font-family:'Mulish', sans-serif;
-    margin: 0;
-    overflow: hidden;
-    height: 100%; 
+  background: var(--c-primary);
+  color: var(--c-font);
+  font-size: 16px;
+  font-family: "Mulish", sans-serif;
+  margin: 0;
+  height: 100%;
 }
 
-.container-fluid {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-.header{
-    height: 5rem;
-}
-
-.icon-social-media{
-    width: 2rem;   
+.icon-social-media {
+  width: 2rem;
 }
 .picture-container {
-    border-radius: 8rem 8rem 3rem 8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 5rem;
-    width: 5rem;
-    overflow: hidden;
-    }
-    .picture-container img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+  align-items: center;
+  display: flex;
+  height: 5rem;
+  justify-content: center;
+  width: 5rem;
+}
+.picture-container .picture-profile {
+  border-radius: 8rem 8rem 3rem 8rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    }
+.circle-element {
+  width: 2rem;
+  height: 2rem;
+  background-color: #5498d6;
+  border-radius: 50%; /* Para hacerlo circular */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-icon-color {
+  color: white; /* Color del icono */
+  font-size: 1.2rem; /* Tamaño del icono */
+}
+
+.text-data {
+  font-size: 0.6rem;
+  font-weight: normal;
+  margin-bottom: 0.3rem;
+}
+
+.text-icons {
+  height: 0.8rem;
+  width: 0.8rem;
+  margin-right: 0.2rem;
+}
