@@ -17,6 +17,11 @@ html {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
+.progress,
+.progress-stacked {
+  --bs-progress-height: 0.5rem;
+}
+
 .icon-social-media {
   width: 2rem;
 }
@@ -50,13 +55,60 @@ html {
 }
 
 .text-data {
+  color: rgb(74, 85, 96);
   font-size: 0.6rem;
   font-weight: normal;
   margin-bottom: 0.3rem;
+}
+
+.text-data-influRed {
+  font-size: 0.8rem;
+  color: rgb(60, 173, 207);
+}
+
+.text-data-influName {
+  font-size: 1.2rem;
+  color: rgb(92, 120, 147);
 }
 
 .text-icons {
   height: 0.8rem;
   width: 0.8rem;
   margin-right: 0.2rem;
+}
+
+.female-icon {
+  color: #f976ef;
+}
+.male-icon {
+  color: #608cc3;
+}
+
+.options span > i {
+  font-size: 0.8rem;
+}
+
+.card span > i {
+  font-size: 1.5rem;
+}
+
+.graphic-tittle {
+  font-size: 0.7rem;
+  color: #4072a0;
+  text-align: center;
+}
+
+.col-tittle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #406991;
+}
+
+.m-negative {
+  margin-left: -4rem;
+}
+@media (max-width: 992px) {
+  .m-negative {
+    margin-left: 0;
+  }
 }
