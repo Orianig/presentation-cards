@@ -22,8 +22,9 @@ am5.ready(function () {
   );
 
   // Create axes
-  var yRenderer = am5xy.AxisRendererY.new(root, { minGridDistance: 30 });
+  var yRenderer = am5xy.AxisRendererY.new(root, { minGridDistance: 10 });
   yRenderer.grid.template.set("location", 1);
+  yRenderer.labels.template.set("fontSize", 10);
 
   var yAxis = chart.yAxes.push(
     am5xy.CategoryAxis.new(root, {
@@ -140,35 +141,33 @@ am5.ready(function () {
       return x.get("index") - y.get("index");
     });
   }
+
   // Set data
   var data = [
     {
-      topic: "Moda",
-      value: 35.7,
-    },
-    {
-      topic: "Belleza",
-      value: 24.0,
-    },
-    {
-      topic: "Familia",
-      value: 15.2,
-    },
-    {
-      topic: "Viaje",
-      value: 9.5,
-    },
-    {
-      topic: "Mascotas",
-      value: 7.9,
+      topic: "Otras",
+      value: 0,
     },
     {
       topic: "Cultura",
       value: 5.2,
     },
     {
-      topic: "Otras",
-      value: 0,
+      topic: "Mascotas",
+      value: 7.9,
+    },
+    {
+      topic: "Viaje",
+      value: 9.5,
+    },
+    {
+      topic: "Familia",
+      value: 15.2,
+    },
+
+    {
+      topic: "Moda",
+      value: 35.7,
     },
   ];
 

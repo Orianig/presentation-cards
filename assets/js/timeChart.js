@@ -1,10 +1,8 @@
 am5.ready(function () {
   // Create root element
-  // https://www.amcharts.com/docs/v5/getting-started/#Root_element
-  var root = am5.Root.new("chartdiv");
+  var root = am5.Root.new("timediv");
 
   // Set themes
-  // https://www.amcharts.com/docs/v5/concepts/themes/
   root.setThemes([am5themes_Animated.new(root)]);
 
   var data = [
@@ -29,31 +27,9 @@ am5.ready(function () {
         src: "https://www.amcharts.com/wp-content/uploads/2019/04/ross.jpg",
       },
     },
-    {
-      name: "Phoebe",
-      steps: 18788,
-      pictureSettings: {
-        src: "https://www.amcharts.com/wp-content/uploads/2019/04/phoebe.jpg",
-      },
-    },
-    {
-      name: "Rachel",
-      steps: 15465,
-      pictureSettings: {
-        src: "https://www.amcharts.com/wp-content/uploads/2019/04/rachel.jpg",
-      },
-    },
-    {
-      name: "Chandler",
-      steps: 11561,
-      pictureSettings: {
-        src: "https://www.amcharts.com/wp-content/uploads/2019/04/chandler.jpg",
-      },
-    },
   ];
 
   // Create chart
-  // https://www.amcharts.com/docs/v5/charts/xy-chart/
   var chart = root.container.children.push(
     am5xy.XYChart.new(root, {
       panX: false,
@@ -66,8 +42,6 @@ am5.ready(function () {
   );
 
   // Create axes
-  // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
-
   var yRenderer = am5xy.AxisRendererY.new(root, {});
   yRenderer.grid.template.set("visible", false);
 
@@ -90,7 +64,6 @@ am5.ready(function () {
   );
 
   // Add series
-  // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
   var series = chart.series.push(
     am5xy.ColumnSeries.new(root, {
       name: "Income",
@@ -119,42 +92,6 @@ am5.ready(function () {
     fillOpacity: 0.8,
   });
 
-  var currentlyHovered;
-
-  series.columns.template.events.on("pointerover", function (e) {
-    handleHover(e.target.dataItem);
-  });
-
-  series.columns.template.events.on("pointerout", function (e) {
-    handleOut();
-  });
-
-  function handleHover(dataItem) {
-    if (dataItem && currentlyHovered != dataItem) {
-      handleOut();
-      currentlyHovered = dataItem;
-      var bullet = dataItem.bullets[0];
-      bullet.animate({
-        key: "locationX",
-        to: 1,
-        duration: 600,
-        easing: am5.ease.out(am5.ease.cubic),
-      });
-    }
-  }
-
-  function handleOut() {
-    if (currentlyHovered) {
-      var bullet = currentlyHovered.bullets[0];
-      bullet.animate({
-        key: "locationX",
-        to: 0,
-        duration: 600,
-        easing: am5.ease.out(am5.ease.cubic),
-      });
-    }
-  }
-
   var circleTemplate = am5.Template.new({});
 
   series.bullets.push(function (root, series, dataItem) {
@@ -163,7 +100,7 @@ am5.ready(function () {
       am5.Circle.new(
         root,
         {
-          radius: 34,
+          radius: 15,
         },
         circleTemplate
       )
@@ -186,8 +123,8 @@ am5.ready(function () {
         templateField: "pictureSettings",
         centerX: am5.p50,
         centerY: am5.p50,
-        width: 60,
-        height: 60,
+        width: 8,
+        height: 8,
       })
     );
 
@@ -232,7 +169,6 @@ am5.ready(function () {
   });
 
   // Make stuff animate on load
-  // https://www.amcharts.com/docs/v5/concepts/animations/
   series.appear();
   chart.appear(1000, 100);
-}); // end am5.ready()
+});
