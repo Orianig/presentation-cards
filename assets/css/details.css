@@ -43,22 +43,21 @@ html {
   width: 2rem;
   height: 2rem;
   background-color: #5498d6;
-  border-radius: 50%; /* Para hacerlo circular */
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .text-icon-color {
-  color: white; /* Color del icono */
-  font-size: 1.2rem; /* Tamaño del icono */
+  color: white;
+  font-size: 1.2rem;
 }
 
 .text-data {
   color: rgb(74, 85, 96);
   font-size: 0.6rem;
   font-weight: normal;
-  margin-bottom: 0.3rem;
 }
 
 .text-data-influRed {
@@ -111,4 +110,39 @@ html {
   .m-negative {
     margin-left: 0;
   }
+}
+.bg-orange {
+  background-color: orangered;
+}
+
+.text-cards {
+  font-size: 0.8rem;
+  color: #25394e;
+}
+
+.circle-element-card {
+  width: 1.4rem;
+  height: 1.4rem;
+  background-color: #222d3a;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-element-card i {
+  color: white;
+  font-size: 0.7rem;
+}
+
+.bg-impress {
+  background-color: #26376d;
+}
+
+.bg-rep {
+  background-color: #346bc4;
+}
+
+.bg-eng {
+  background-color: #159cd2;
 }
