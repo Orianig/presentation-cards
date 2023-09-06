@@ -7,25 +7,19 @@ am5.ready(function () {
 
   var data = [
     {
-      name: "Monica",
-      steps: 45688,
-      pictureSettings: {
-        src: "https://www.amcharts.com/wp-content/uploads/2019/04/monica.jpg",
-      },
+      name: "Noche",
+      steps: 60,
+      iconHTML: '<i class="fa-solid fa-moon"></i>',
     },
     {
-      name: "Joey",
-      steps: 35781,
-      pictureSettings: {
-        src: "https://www.amcharts.com/wp-content/uploads/2019/04/joey.jpg",
-      },
+      name: "Tarde",
+      steps: 90,
+      iconHTML: '<i class="fa-solid fa-cloud-sun"></i>',
     },
     {
-      name: "Ross",
-      steps: 25464,
-      pictureSettings: {
-        src: "https://www.amcharts.com/wp-content/uploads/2019/04/ross.jpg",
-      },
+      name: "Mañana",
+      steps: 100,
+      iconHTML: '<i class="fa-solid fa-sun"></i>',
     },
   ];
 
@@ -44,6 +38,7 @@ am5.ready(function () {
   // Create axes
   var yRenderer = am5xy.AxisRendererY.new(root, {});
   yRenderer.grid.template.set("visible", false);
+  yRenderer.labels.template.set("fontSize", 10);
 
   var yAxis = chart.yAxes.push(
     am5xy.CategoryAxis.new(root, {
