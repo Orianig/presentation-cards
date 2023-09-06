@@ -1,14 +1,11 @@
 am5.ready(function () {
   // Create root element
-  // https://www.amcharts.com/docs/v5/getting-started/#Root_element
-  var root = am5.Root.new("chartdiv");
+  var root = am5.Root.new("engdiv");
 
   // Set themes
-  // https://www.amcharts.com/docs/v5/concepts/themes/
   root.setThemes([am5themes_Animated.new(root)]);
 
   // Create chart
-  // https://www.amcharts.com/docs/v5/charts/xy-chart/
   var chart = root.container.children.push(
     am5xy.XYChart.new(root, {
       panX: true,
@@ -20,12 +17,10 @@ am5.ready(function () {
   );
 
   // Add cursor
-  // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
   var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
   cursor.lineY.set("visible", false);
 
   // Create axes
-  // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
   var xRenderer = am5xy.AxisRendererX.new(root, { minGridDistance: 30 });
   xRenderer.labels.template.setAll({
     rotation: -90,
@@ -57,7 +52,6 @@ am5.ready(function () {
   );
 
   // Create series
-  // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
   var series = chart.series.push(
     am5xy.ColumnSeries.new(root, {
       name: "Series 1",
@@ -88,48 +82,32 @@ am5.ready(function () {
   // Set data
   var data = [
     {
-      country: "USA",
-      value: 2025,
+      country: "L",
+      value: 1.5,
     },
     {
-      country: "China",
-      value: 1882,
+      country: "M",
+      value: 2,
     },
     {
-      country: "Japan",
-      value: 1809,
+      country: "X",
+      value: 1.6,
     },
     {
-      country: "Germany",
-      value: 1322,
+      country: "J",
+      value: 1.7,
     },
     {
-      country: "UK",
-      value: 1122,
+      country: "V",
+      value: 1.8,
     },
     {
-      country: "France",
-      value: 1114,
+      country: "S",
+      value: 2.1,
     },
     {
-      country: "India",
-      value: 984,
-    },
-    {
-      country: "Spain",
-      value: 711,
-    },
-    {
-      country: "Netherlands",
-      value: 665,
-    },
-    {
-      country: "South Korea",
-      value: 443,
-    },
-    {
-      country: "Canada",
-      value: 441,
+      country: "D",
+      value: 1.9,
     },
   ];
 
@@ -140,4 +118,4 @@ am5.ready(function () {
   // https://www.amcharts.com/docs/v5/concepts/animations/
   series.appear(1000);
   chart.appear(1000, 100);
-}); // end am5.ready()
+});
