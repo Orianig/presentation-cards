@@ -38,6 +38,8 @@
     <script src="//cdn.amcharts.com/lib/5/percent.js"></script>
     <script src="//cdn.amcharts.com/lib/5/themes/Animated.js"></script>
     <script src="//cdn.amcharts.com/lib/5/themes/Responsive.js"></script>
+
+    <script src="/assets/js/pieChart.js"></script>
   </head>
 
   <body>
@@ -249,7 +251,11 @@
               class="card g-col-12 g-col-md-6 d-flex flex-column p-2 justify-content-center"
             >
               <span class="graphic-tittle">Distribución por género</span>
-              <div id="app" class="p-2"></div>
+              <div id="pieChart" class="p-2"></div>
+              <script>
+                const pieChartCard = document.getElementById("pieChart");
+                generatePieChart([], pieChartCard);
+              </script>
             </div>
             <!-- COL COUNTRY GRAPHIC -->
             <div class="card g-col-12 g-col-md-6">
