@@ -208,8 +208,8 @@ const generateGrid = (influencerHTML, influcard) => {
   // * 2. PUBLICATIONS
   generatePublicationsHTML(gridHTML, influcard);
 
-  // * 3 IMPRESSIONS
-  generateImpressionsHTML(gridHTML, influcard);
+  // * 3 PERFORMANCE
+  generatePerformanceHTML(gridHTML, influcard);
 };
 
 const generateAudienceHTML = (gridHTML, influcard) => {
@@ -495,8 +495,8 @@ const generateAudienceHTML = (gridHTML, influcard) => {
 };
 
 const generatePublicationsHTML = (gridHTML, influcard) => {
-  let col1HTML = document.createElement("div");
-  col1HTML.classList.add(
+  let allHTML = document.createElement("div");
+  allHTML.classList.add(
     "g-col-12",
     "g-col-md-4",
     "d-flex",
@@ -504,26 +504,43 @@ const generatePublicationsHTML = (gridHTML, influcard) => {
     "gap-1"
   );
 
-  let row1HTML = document.createElement("div");
-  row1HTML.classList.add(
-    "card",
-    "d-flex",
-    "flex-row",
-    "align-items-center",
-    "gap-2",
-    "p-2"
-  );
+  allHTML.innerHTML = `
+  <div class="card d-flex flex-row align-items-center gap-2 p-2">
+    <div class="circle-element">
+      <i class="text-icon-color fa-solid fa-camera"></i>
+    </div>
+    <span class="col-tittle">PUBLICACIONES</span>
+  </div>
+  <!-- COL TERRITORY GRAPHIC -->
+  <div class="card g-col-12 d-flex flex-column p-2">
+    <span class="graphic-tittle"
+      >Distribución de sus publicaciones por territorios
+    </span>
+    <div id="racediv"></div>
+  </div>
+  <!-- COL HORARY GRAPHIC -->
+  <div class="card g-col-12 d-flex flex-column p-2">
+    <span class="graphic-tittle"
+      >Franja horaria de sus publicaciones</span
+    >
+    <div id="timediv"></div>
+  </div>
+  <!-- COL BRANDS GRAPHIC -->
+  <div class="card g-col-12 d-flex flex-column p-2">
+    <span class="graphic-tittle">Marcas con las que ha trabajado</span>
+  </div>
+  `;
+  gridHTML.appendChild(allHTML);
 
-  row1HTML.innerHTML = `<div class="circle-element">
-  <i class="text-icon-color fa-solid fa-camera"></i>
-</div>
-<span class="col-tittle">PUBLICACIONES</span>`;
-  col1HTML.appendChild(row1HTML);
-  gridHTML.appendChild(col1HTML);
+  const racedivChartCard = document.getElementById("racediv");
+  generateRaceDivChart(influcard, racedivChartCard);
+
+  const timeChartCard = document.getElementById("timediv");
+  generateTimeChart(influcard, timeChartCard);
 };
-const generateImpressionsHTML = (gridHTML, influcard) => {
-  let col1HTML = document.createElement("div");
-  col1HTML.classList.add(
+const generatePerformanceHTML = (gridHTML, influcard) => {
+  let allHTML = document.createElement("div");
+  allHTML.classList.add(
     "g-col-12",
     "g-col-md-4",
     "d-flex",
@@ -531,20 +548,13 @@ const generateImpressionsHTML = (gridHTML, influcard) => {
     "gap-1"
   );
 
-  let row1HTML = document.createElement("div");
-  row1HTML.classList.add(
-    "card",
-    "d-flex",
-    "flex-row",
-    "align-items-center",
-    "gap-2",
-    "p-2"
-  );
-
-  row1HTML.innerHTML = `<div class="circle-element">
-  <i class="text-icon-color fa-solid fa-chart-line"></i>
-</div>
-<span class="col-tittle">DESEMPEÑO</span>`;
-  col1HTML.appendChild(row1HTML);
-  gridHTML.appendChild(col1HTML);
+  allHTML.innerHTML = `
+  <div class="card d-flex flex-row align-items-center gap-2 p-2">
+            <div class="circle-element">
+              <i class="text-icon-color fa-solid fa-chart-line"></i>
+            </div>
+            <span class="col-tittle">DESEMPEÑO</span>
+          </div>
+  `;
+  gridHTML.appendChild(allHTML);
 };

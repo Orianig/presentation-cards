@@ -1,6 +1,12 @@
-am5.ready(function () {
-  // Create root element
-  var root = am5.Root.new("racediv");
+const generateRaceDivChart = (influcard, elementHTML) => {
+  // Crear un elemento div para el gráfico de pastel
+  elementHTML.style.width = "100%";
+  elementHTML.style.height = "10rem";
+
+  // Create root and chart
+  const elementHTML_ID = "raceChart";
+  elementHTML.setAttribute("id", elementHTML_ID);
+  var root = am5.Root.new(elementHTML_ID);
 
   var myTheme = am5.Theme.new(root);
 
@@ -177,4 +183,4 @@ am5.ready(function () {
   // Make stuff animate on load
   series.appear(1000);
   chart.appear(1000, 100);
-});
+};

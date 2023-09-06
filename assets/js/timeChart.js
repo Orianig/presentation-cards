@@ -1,6 +1,12 @@
-am5.ready(function () {
-  // Create root element
-  var root = am5.Root.new("timediv");
+generateTimeChart = (influcard, elementHTML) => {
+  // Crear un elemento div para el gráfico de pastel
+  elementHTML.style.width = "100%";
+  elementHTML.style.height = "150px";
+
+  // Create root and chart
+  const elementHTML_ID = "timeChart";
+  elementHTML.setAttribute("id", elementHTML_ID);
+  var root = am5.Root.new(elementHTML_ID);
 
   // Set themes
   root.setThemes([am5themes_Animated.new(root)]);
@@ -154,16 +160,7 @@ am5.ready(function () {
   cursor.lineX.set("visible", false);
   cursor.lineY.set("visible", false);
 
-  cursor.events.on("cursormoved", function () {
-    var dataItem = series.get("tooltip").dataItem;
-    if (dataItem) {
-      handleHover(dataItem);
-    } else {
-      handleOut();
-    }
-  });
-
   // Make stuff animate on load
   series.appear();
   chart.appear(1000, 100);
-});
+};
