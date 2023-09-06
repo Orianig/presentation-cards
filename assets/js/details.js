@@ -213,8 +213,8 @@ const generateGrid = (influencerHTML, influcard) => {
 };
 
 const generateAudienceHTML = (gridHTML, influcard) => {
-  let col1HTML = document.createElement("div");
-  col1HTML.classList.add(
+  let allHTML = document.createElement("div");
+  allHTML.classList.add(
     "g-col-12",
     "g-col-md-4",
     "d-flex",
@@ -222,277 +222,273 @@ const generateAudienceHTML = (gridHTML, influcard) => {
     "gap-1"
   );
 
-  let row1HTML = document.createElement("div");
-  row1HTML.classList.add(
-    "card",
-    "d-flex",
-    "flex-row",
-    "align-items-center",
-    "gap-2",
-    "p-2"
-  );
-  row1HTML.innerHTML = `<div class="circle-element">
-  <i class="text-icon-color fa-solid fa-users"></i>
-</div>
-<span class="col-tittle">AUDIENCIA</span>`;
-  col1HTML.appendChild(row1HTML);
+  allHTML.innerHTML = `
+  <div class="card d-flex flex-row align-items-center gap-2 p-2">
+    <div class="circle-element">
+      <i class="text-icon-color fa-solid fa-users"></i>
+    </div>
+    <span class="col-tittle">AUDIENCIA</span>
+  </div>
+  <div class="card d-flex flex-row g-col-12 p-2">
+    <span
+      class="text-data col-4 d-flex flex-column align-items-center justify-content-center"
+      >Audiencia<i class="mt-1 mb-1 fa-solid fa-users"></i
+      ><span class="text-cards">CANTIDAD</span></span
+    >
+    <span
+      class="text-data col-4 d-flex flex-column align-items-center justify-content-center"
+      >Seguidores Fake<i class="mt-1 mb-1 fa-solid fa-users"></i
+      ><span class="text-cards">CANTIDAD</span></span
+    >
+    <span
+      class="text-data col-4 d-flex flex-column align-items-center justify-content-center"
+      >Audiencia Real<i
+        class="mt-1 mb-1 fa-solid fa-users opacity-50"
+      ></i
+      ><span class="text-cards">CANTIDAD</span></span
+    >
+  </div>
+  <!-- COL AGE GRAPHIC -->
+  <div class="card g-col-12 d-flex flex-column p-2 gap-2">
+    <span class="graphic-tittle">Distribución por edad</span>
+    <!-- graphic age-distribution -->
+    <div class="age-graphic d-flex flex-row align-items-center">
+      <span class="text-data col-2 text-center">edad</span>
+      <div
+        class="progress col-8"
+        role="progressbar"
+        aria-label="Example with label"
+        aria-valuenow="25"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        <div class="progress-bar" style="width: 25%"></div>
+      </div>
+      <span class="text-data col-2 text-center">%</span>
+    </div>
+    <div class="age-graphic d-flex flex-row align-items-center">
+      <span class="text-data col-2 text-center">edad</span>
+      <div
+        class="progress col-8"
+        role="progressbar"
+        aria-label="Example with label"
+        aria-valuenow="25"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        <div class="progress-bar" style="width: 25%"></div>
+      </div>
+      <span class="text-data col-2 text-center">%</span>
+    </div>
+    <div class="age-graphic d-flex flex-row align-items-center">
+      <span class="text-data col-2 text-center">edad</span>
+      <div
+        class="progress col-8"
+        role="progressbar"
+        aria-label="Example with label"
+        aria-valuenow="25"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        <div class="progress-bar" style="width: 25%"></div>
+      </div>
+      <span class="text-data col-2 text-center">%</span>
+    </div>
+    <div class="age-graphic d-flex flex-row align-items-center">
+      <span class="text-data col-2 text-center">edad</span>
+      <div
+        class="progress col-8"
+        role="progressbar"
+        aria-label="Example with label"
+        aria-valuenow="25"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        <div class="progress-bar" style="width: 25%"></div>
+      </div>
+      <span class="text-data col-2 text-center">%</span>
+    </div>
+    <div class="age-graphic d-flex flex-row align-items-center">
+      <span class="text-data col-2 text-center">edad</span>
+      <div
+        class="progress col-8"
+        role="progressbar"
+        aria-label="Example with label"
+        aria-valuenow="25"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        <div class="progress-bar" style="width: 25%"></div>
+      </div>
+      <span class="text-data col-2 text-center">%</span>
+    </div>
+    <div class="age-graphic d-flex flex-row align-items-center mb-4">
+      <span class="text-data col-2 text-center">edad</span>
+      <div
+        class="progress col-8"
+        role="progressbar"
+        aria-label="Example with label"
+        aria-valuenow="25"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        <div class="progress-bar" style="width: 25%"></div>
+      </div>
+      <span class="text-data col-2 text-center">%</span>
+    </div>
+  </div>
 
-  let row2HTML = document.createElement("div");
-  row2HTML.classList.add("g-col-12", "g-col-md-4", "grid");
-  row2HTML.innerHTML = `<div class="card d-flex flex-row g-col-12 p-2">
-  <span
-    class="text-data col-4 d-flex flex-column align-items-center justify-content-center"
-    >Audiencia<i class="mt-1 mb-1 fa-solid fa-users"></i
-    ><span class="text-cards">CANTIDAD</span></span
-  >
-  <span
-    class="text-data col-4 d-flex flex-column align-items-center justify-content-center"
-    >Seguidores Fake<i class="mt-1 mb-1 fa-solid fa-users"></i
-    ><span class="text-cards">CANTIDAD</span></span
-  >
-  <span
-    class="text-data col-4 d-flex flex-column align-items-center justify-content-center"
-    >Audiencia Real<i
-      class="mt-1 mb-1 fa-solid fa-users opacity-50"
-    ></i
-    ><span class="text-cards">CANTIDAD</span></span
-  >
-</div>
-<div class="card g-col-12 d-flex flex-column p-2 gap-2">
-  <span class="graphic-tittle">Distribución por edad</span>
-  <!-- graphic age-distribution -->
-  <div class="age-graphic d-flex flex-row align-items-center">
-    <span class="text-data col-2 text-center">edad</span>
+  <div class="g-col-12 g-col-md-4 grid">
+    <!-- COL GENDER GRAPHIC -->
     <div
-      class="progress col-8"
-      role="progressbar"
-      aria-label="Example with label"
-      aria-valuenow="25"
-      aria-valuemin="0"
-      aria-valuemax="100"
+      class="card g-col-12 g-col-md-6 d-flex flex-column p-2 justify-content-center"
     >
-      <div class="progress-bar" style="width: 25%"></div>
+      <span class="graphic-tittle">Distribución por género</span>
+      <div id="pieChart" class="p-2"></div>
     </div>
-    <span class="text-data col-2 text-center">%</span>
-  </div>
-  <div class="age-graphic d-flex flex-row align-items-center">
-    <span class="text-data col-2 text-center">edad</span>
-    <div
-      class="progress col-8"
-      role="progressbar"
-      aria-label="Example with label"
-      aria-valuenow="25"
-      aria-valuemin="0"
-      aria-valuemax="100"
-    >
-      <div class="progress-bar" style="width: 25%"></div>
-    </div>
-    <span class="text-data col-2 text-center">%</span>
-  </div>
-  <div class="age-graphic d-flex flex-row align-items-center">
-    <span class="text-data col-2 text-center">edad</span>
-    <div
-      class="progress col-8"
-      role="progressbar"
-      aria-label="Example with label"
-      aria-valuenow="25"
-      aria-valuemin="0"
-      aria-valuemax="100"
-    >
-      <div class="progress-bar" style="width: 25%"></div>
-    </div>
-    <span class="text-data col-2 text-center">%</span>
-  </div>
-  <div class="age-graphic d-flex flex-row align-items-center">
-    <span class="text-data col-2 text-center">edad</span>
-    <div
-      class="progress col-8"
-      role="progressbar"
-      aria-label="Example with label"
-      aria-valuenow="25"
-      aria-valuemin="0"
-      aria-valuemax="100"
-    >
-      <div class="progress-bar" style="width: 25%"></div>
-    </div>
-    <span class="text-data col-2 text-center">%</span>
-  </div>
-  <div class="age-graphic d-flex flex-row align-items-center">
-    <span class="text-data col-2 text-center">edad</span>
-    <div
-      class="progress col-8"
-      role="progressbar"
-      aria-label="Example with label"
-      aria-valuenow="25"
-      aria-valuemin="0"
-      aria-valuemax="100"
-    >
-      <div class="progress-bar" style="width: 25%"></div>
-    </div>
-    <span class="text-data col-2 text-center">%</span>
-  </div>
-  <div class="age-graphic d-flex flex-row align-items-center mb-4">
-    <span class="text-data col-2 text-center">edad</span>
-    <div
-      class="progress col-8"
-      role="progressbar"
-      aria-label="Example with label"
-      aria-valuenow="25"
-      aria-valuemin="0"
-      aria-valuemax="100"
-    >
-      <div class="progress-bar" style="width: 25%"></div>
-    </div>
-    <span class="text-data col-2 text-center">%</span>
-  </div>
-</div>
-<div
-  class="card g-col-12 g-col-md-6 d-flex flex-column p-2 justify-content-center"
->
-  <span class="graphic-tittle">Distribución por género</span>
-  <div id="pieChart" class="p-2"></div>
-</div>
-<div class="card g-col-12 g-col-md-6">
-  <div class="d-flex flex-column p-2 gap-3">
-    <span class="graphic-tittle">Distribución por país</span>
-    <!-- graphic country-distribution -->
-    <div class="age-graphic d-flex flex-row align-items-center">
-      <span class="text-data col-2 text-center">
-        <img
-          class="text-icons"
-          src="../img/espana.png"
-          alt="Icono"
-        />pais</span
-      >
-      <div
-        class="progress col-8"
-        role="progressbar"
-        aria-label="Example with label"
-        aria-valuenow="25"
-        aria-valuemin="0"
-        aria-valuemax="100"
-      >
-        <div
-          class="progress-bar bg-orange"
-          style="width: 25%"
-        ></div>
+    <!-- COL COUNTRY GRAPHIC -->
+    <div class="card g-col-12 g-col-md-6">
+      <div class="d-flex flex-column p-2 gap-3">
+        <span class="graphic-tittle">Distribución por país</span>
+        <!-- graphic country-distribution -->
+        <div class="age-graphic d-flex flex-row align-items-center">
+          <span class="text-data col-2 text-center">
+            <img
+              class="text-icons"
+              src="../img/espana.png"
+              alt="Icono"
+            />pais</span
+          >
+          <div
+            class="progress col-8"
+            role="progressbar"
+            aria-label="Example with label"
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            <div
+              class="progress-bar bg-orange"
+              style="width: 25%"
+            ></div>
+          </div>
+          <span class="text-data col-2 text-center">%</span>
+        </div>
+        <div class="age-graphic d-flex flex-row align-items-center">
+          <span class="text-data col-2 text-center">
+            <img class="text-icons" src="../img/eeuu.png" alt="Icono" />
+            pais</span
+          >
+          <div
+            class="progress col-8"
+            role="progressbar"
+            aria-label="Example with label"
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            <div
+              class="progress-bar bg-orange"
+              style="width: 25%"
+            ></div>
+          </div>
+          <span class="text-data col-2 text-center">%</span>
+        </div>
+        <div class="age-graphic d-flex flex-row align-items-center">
+          <span class="text-data col-2 text-center"
+            ><img
+              class="text-icons"
+              src="../img/mexico.png"
+              alt="Icono"
+            />pais</span
+          >
+          <div
+            class="progress col-8"
+            role="progressbar"
+            aria-label="Example with label"
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            <div
+              class="progress-bar bg-orange"
+              style="width: 25%"
+            ></div>
+          </div>
+          <span class="text-data col-2 text-center">%</span>
+        </div>
+        <div class="age-graphic d-flex flex-row align-items-center">
+          <span class="text-data col-2 text-center"
+            ><img
+              class="text-icons"
+              src="../img/francia.png"
+              alt="Icono"
+            />
+            pais</span
+          >
+          <div
+            class="progress col-8"
+            role="progressbar"
+            aria-label="Example with label"
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            <div
+              class="progress-bar bg-orange"
+              style="width: 25%"
+            ></div>
+          </div>
+          <span class="text-data col-2 text-center">%</span>
+        </div>
+        <div class="age-graphic d-flex flex-row align-items-center">
+          <span class="text-data col-2 text-center"
+            ><img
+              class="text-icons"
+              src="../img/italia.png"
+              alt="Icono"
+            />pais</span
+          >
+          <div
+            class="progress col-8"
+            role="progressbar"
+            aria-label="Warning example"
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            <div
+              class="progress-bar bg-orange"
+              style="width: 25%"
+            ></div>
+          </div>
+          <span class="text-data col-2 text-center">%</span>
+        </div>
+        <div class="age-graphic d-flex flex-row align-items-center">
+          <span class="text-data col-2 text-center"
+            ><img class="text-icons" src="../img/cargando.png"
+            alt="Icono" / >pais</span
+          >
+          <div
+            class="progress col-8"
+            role="progressbar"
+            aria-label="Example with label"
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            <div
+              class="progress-bar bg-orange"
+              style="width: 25%"
+            ></div>
+          </div>
+          <span class="text-data col-2 text-center">%</span>
+        </div>
       </div>
-      <span class="text-data col-2 text-center">%</span>
-    </div>
-    <div class="age-graphic d-flex flex-row align-items-center">
-      <span class="text-data col-2 text-center">
-        <img class="text-icons" src="../img/eeuu.png" alt="Icono" />
-        pais</span
-      >
-      <div
-        class="progress col-8"
-        role="progressbar"
-        aria-label="Example with label"
-        aria-valuenow="25"
-        aria-valuemin="0"
-        aria-valuemax="100"
-      >
-        <div
-          class="progress-bar bg-orange"
-          style="width: 25%"
-        ></div>
-      </div>
-      <span class="text-data col-2 text-center">%</span>
-    </div>
-    <div class="age-graphic d-flex flex-row align-items-center">
-      <span class="text-data col-2 text-center"
-        ><img
-          class="text-icons"
-          src="../img/mexico.png"
-          alt="Icono"
-        />pais</span
-      >
-      <div
-        class="progress col-8"
-        role="progressbar"
-        aria-label="Example with label"
-        aria-valuenow="25"
-        aria-valuemin="0"
-        aria-valuemax="100"
-      >
-        <div
-          class="progress-bar bg-orange"
-          style="width: 25%"
-        ></div>
-      </div>
-      <span class="text-data col-2 text-center">%</span>
-    </div>
-    <div class="age-graphic d-flex flex-row align-items-center">
-      <span class="text-data col-2 text-center"
-        ><img
-          class="text-icons"
-          src="../img/francia.png"
-          alt="Icono"
-        />
-        pais</span
-      >
-      <div
-        class="progress col-8"
-        role="progressbar"
-        aria-label="Example with label"
-        aria-valuenow="25"
-        aria-valuemin="0"
-        aria-valuemax="100"
-      >
-        <div
-          class="progress-bar bg-orange"
-          style="width: 25%"
-        ></div>
-      </div>
-      <span class="text-data col-2 text-center">%</span>
-    </div>
-    <div class="age-graphic d-flex flex-row align-items-center">
-      <span class="text-data col-2 text-center"
-        ><img
-          class="text-icons"
-          src="../img/italia.png"
-          alt="Icono"
-        />pais</span
-      >
-      <div
-        class="progress col-8"
-        role="progressbar"
-        aria-label="Warning example"
-        aria-valuenow="25"
-        aria-valuemin="0"
-        aria-valuemax="100"
-      >
-        <div
-          class="progress-bar bg-orange"
-          style="width: 25%"
-        ></div>
-      </div>
-      <span class="text-data col-2 text-center">%</span>
-    </div>
-    <div class="age-graphic d-flex flex-row align-items-center">
-      <span class="text-data col-2 text-center"
-        ><img class="text-icons" src="../img/cargando.png"
-        alt="Icono" / >pais</span
-      >
-      <div
-        class="progress col-8"
-        role="progressbar"
-        aria-label="Example with label"
-        aria-valuenow="25"
-        aria-valuemin="0"
-        aria-valuemax="100"
-      >
-        <div
-          class="progress-bar bg-orange"
-          style="width: 25%"
-        ></div>
-      </div>
-      <span class="text-data col-2 text-center">%</span>
     </div>
   </div>
-</div>`;
-  col1HTML.appendChild(row2HTML);
-  gridHTML.appendChild(col1HTML);
+  `;
+  gridHTML.appendChild(allHTML);
 
   const pieChartCard = document.getElementById("pieChart");
   generatePieChart([], pieChartCard);
