@@ -66,7 +66,7 @@ const generateHeader = (influencerHTML, influcard) => {
     "top-0",
     "start-0"
   );
-  iconSocialMediaHTML.src = "../img/instagram circle.png";
+  iconSocialMediaHTML.src = "../assets/img/instagram circle.png";
   iconSocialMediaHTML.alt = "...";
 
   // Agregar los elementos de imagen al contenedor
@@ -89,11 +89,11 @@ const generateHeader = (influencerHTML, influcard) => {
     influcard.name
   }</span>
   <div class="d-flex flex-row align-items-center mb-2">
-    <img class="text-icons" src="../img/instagram.png" alt="Icono" />
+    <img class="text-icons" src="../assets/img/instagram.png" alt="Icono" />
     <span class="text-data-influRed">${influcard.username}</span>
   </div>
   <div class="d-flex flex-row">
-    <img class="text-icons" src="../img/espana.png" alt="Icono" />
+    <img class="text-icons" src="../assets/img/espana.png" alt="Icono" />
     <span class="text-data">
         ${influcard.country} -
         ${
@@ -299,7 +299,7 @@ const generateAudienceHTML = (gridHTML, influcard) => {
           <span class="text-data col-2 text-center">
             <img
               class="text-icons"
-              src="../img/espana.png"
+              src="../assets/img/espana.png"
               alt="Icono"
             />ES</span
           >
@@ -320,7 +320,7 @@ const generateAudienceHTML = (gridHTML, influcard) => {
         </div>
         <div class="age-graphic d-flex flex-row align-items-center">
           <span class="text-data col-2 text-center">
-            <img class="text-icons" src="../img/eeuu.png" alt="Icono" />
+            <img class="text-icons" src="../assets/img/eeuu.png" alt="Icono" />
             US</span
           >
           <div
@@ -342,7 +342,7 @@ const generateAudienceHTML = (gridHTML, influcard) => {
           <span class="text-data col-2 text-center"
             ><img
               class="text-icons"
-              src="../img/mexico.png"
+              src="../assets/img/mexico.png"
               alt="Icono"
             />MX</span
           >
@@ -365,7 +365,7 @@ const generateAudienceHTML = (gridHTML, influcard) => {
           <span class="text-data col-2 text-center"
             ><img
               class="text-icons"
-              src="../img/francia.png"
+              src="../assets/img/francia.png"
               alt="Icono"
             />
             FR</span
@@ -389,7 +389,7 @@ const generateAudienceHTML = (gridHTML, influcard) => {
           <span class="text-data col-2 text-center"
             ><img
               class="text-icons"
-              src="../img/italia.png"
+              src="../assets/img/italia.png"
               alt="Icono"
             />IT</span
           >
@@ -410,7 +410,7 @@ const generateAudienceHTML = (gridHTML, influcard) => {
         </div>
         <div class="age-graphic d-flex flex-row align-items-center">
           <span class="text-data col-2 text-center"
-            ><img class="text-icons" src="../img/cargando.png"
+            ><img class="text-icons" src="../assets/img/cargando.png"
             alt="Icono" / >Otro</span
           >
           <div

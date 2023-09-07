@@ -59,7 +59,7 @@ const generateInfluencerListHTML = () => {
     figureHTML.addEventListener("click", () => {
       showLoader();
       setTimeout(() => {
-        window.location.href = "./assets/pages/details.html";
+        window.location.href = "./pages/details.html";
         hideLoader();
       }, 1000);
     });
