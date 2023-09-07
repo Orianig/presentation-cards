@@ -578,10 +578,14 @@ const generatePublicationsHTML = (gridHTML, influcard) => {
   </div>
   <!-- COL BRANDS GRAPHIC -->
   <div class="card g-col-12 d-flex flex-column p-2">
-    <span class="graphic-tittle">Marcas con las que ha trabajado</span> 
+    <span class="graphic-tittle">Marcas con las que ha trabajado</span>
+    <div class="d-flex flex-wrap gap-4 align-items-center justify-content-center" id="brand-list"></div>
   </div>
   `;
   gridHTML.appendChild(allHTML);
+
+  const brandListContainer = document.getElementById("brand-list");
+  generateBrandsHtml(influcard.brands_images, brandListContainer);
 
   const racedivChartCard = document.getElementById("racediv");
   generateRaceDivChart(influcard, racedivChartCard);
@@ -726,4 +730,18 @@ const generatePerformanceHTML = (gridHTML, influcard) => {
 
   const engChartCard = document.getElementById("engdiv");
   generateEngChart(influcard, engChartCard);
+};
+
+const generateBrandsHtml = (imageList = [], elementHTML) => {
+  let slicedImgList = [...imageList];
+  if (slicedImgList.length >= 8) {
+    slicedImgList = slicedImgList.slice(0, 8);
+  }
+  slicedImgList.map((imageItem) => {
+    let brandImgHTML = document.createElement("img");
+    brandImgHTML.style.height = "60px";
+    brandImgHTML.src = imageItem.image;
+    brandImgHTML.alt = imageItem.name;
+    elementHTML.appendChild(brandImgHTML);
+  });
 };
