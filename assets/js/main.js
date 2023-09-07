@@ -1,4 +1,4 @@
-const apiUrl = "../assets/json/data.json";
+const apiUrl = "../json/data.json";
 let influencersList = [];
 
 // * event when html is loaded
