@@ -1,7 +1,7 @@
 generateTimeChart = (influcard, elementHTML) => {
   // Crear un elemento div para el gráfico de pastel
   elementHTML.style.width = "100%";
-  elementHTML.style.height = "150px";
+  elementHTML.style.height = "7rem";
 
   // Create root and chart
   const elementHTML_ID = "timeChart";
@@ -44,18 +44,17 @@ generateTimeChart = (influcard, elementHTML) => {
   // Create axes
   var yRenderer = am5xy.AxisRendererY.new(root, {});
   yRenderer.grid.template.set("visible", false);
-  yRenderer.labels.template.set("fontSize", 10);
+  yRenderer.labels.template.setAll("fontSize", 0.1);
 
   var yAxis = chart.yAxes.push(
     am5xy.CategoryAxis.new(root, {
       categoryField: "name",
       renderer: yRenderer,
-      paddingRight: 40,
+      paddingRight: 30,
     })
   );
 
   var xRenderer = am5xy.AxisRendererX.new(root, {});
-  xRenderer.grid.template.set("strokeDasharray", [3]);
 
   var xAxis = chart.xAxes.push(
     am5xy.ValueAxis.new(root, {
@@ -72,7 +71,6 @@ generateTimeChart = (influcard, elementHTML) => {
       yAxis: yAxis,
       valueXField: "steps",
       categoryYField: "name",
-      sequencedInterpolation: true,
       calculateAggregates: true,
       maskBullets: false,
       tooltip: am5.Tooltip.new(root, {
@@ -89,7 +87,7 @@ generateTimeChart = (influcard, elementHTML) => {
     cornerRadiusTR: 10,
     cornerRadiusBL: 10,
     cornerRadiusTL: 10,
-    maxHeight: 50,
+    maxHeight: 30,
     fillOpacity: 0.8,
   });
 
@@ -101,7 +99,7 @@ generateTimeChart = (influcard, elementHTML) => {
       am5.Circle.new(
         root,
         {
-          radius: 15,
+          radius: 10,
         },
         circleTemplate
       )

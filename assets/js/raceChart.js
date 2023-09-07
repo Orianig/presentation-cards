@@ -1,7 +1,7 @@
 const generateRaceDivChart = (influcard, elementHTML) => {
   // Crear un elemento div para el gráfico de pastel
   elementHTML.style.width = "100%";
-  elementHTML.style.height = "10rem";
+  elementHTML.style.height = "9rem";
 
   // Create root and chart
   const elementHTML_ID = "raceChart";
