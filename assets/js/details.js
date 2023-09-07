@@ -302,93 +302,7 @@ const generateAudienceHTML = (gridHTML, influcard) => {
     >
   </div>
   <!-- COL AGE GRAPHIC -->
-  <div class="card g-col-12 d-flex flex-column p-2 gap-2">
-    <span class="graphic-tittle">Distribución por edad</span>
-    <!-- graphic age-distribution -->
-    <div class="age-graphic d-flex flex-row align-items-center">
-      <span class="text-data col-2 text-center">edad</span>
-      <div
-        class="progress col-8"
-        role="progressbar"
-        aria-label="Example with label"
-        aria-valuenow="25"
-        aria-valuemin="0"
-        aria-valuemax="100"
-      >
-        <div class="progress-bar" style="width: 25%"></div>
-      </div>
-      <span class="text-data col-2 text-center">%</span>
-    </div>
-    <div class="age-graphic d-flex flex-row align-items-center">
-      <span class="text-data col-2 text-center">edad</span>
-      <div
-        class="progress col-8"
-        role="progressbar"
-        aria-label="Example with label"
-        aria-valuenow="25"
-        aria-valuemin="0"
-        aria-valuemax="100"
-      >
-        <div class="progress-bar" style="width: 25%"></div>
-      </div>
-      <span class="text-data col-2 text-center">%</span>
-    </div>
-    <div class="age-graphic d-flex flex-row align-items-center">
-      <span class="text-data col-2 text-center">edad</span>
-      <div
-        class="progress col-8"
-        role="progressbar"
-        aria-label="Example with label"
-        aria-valuenow="25"
-        aria-valuemin="0"
-        aria-valuemax="100"
-      >
-        <div class="progress-bar" style="width: 25%"></div>
-      </div>
-      <span class="text-data col-2 text-center">%</span>
-    </div>
-    <div class="age-graphic d-flex flex-row align-items-center">
-      <span class="text-data col-2 text-center">edad</span>
-      <div
-        class="progress col-8"
-        role="progressbar"
-        aria-label="Example with label"
-        aria-valuenow="25"
-        aria-valuemin="0"
-        aria-valuemax="100"
-      >
-        <div class="progress-bar" style="width: 25%"></div>
-      </div>
-      <span class="text-data col-2 text-center">%</span>
-    </div>
-    <div class="age-graphic d-flex flex-row align-items-center">
-      <span class="text-data col-2 text-center">edad</span>
-      <div
-        class="progress col-8"
-        role="progressbar"
-        aria-label="Example with label"
-        aria-valuenow="25"
-        aria-valuemin="0"
-        aria-valuemax="100"
-      >
-        <div class="progress-bar" style="width: 25%"></div>
-      </div>
-      <span class="text-data col-2 text-center">%</span>
-    </div>
-    <div class="age-graphic d-flex flex-row align-items-center mb-4">
-      <span class="text-data col-2 text-center">edad</span>
-      <div
-        class="progress col-8"
-        role="progressbar"
-        aria-label="Example with label"
-        aria-valuenow="25"
-        aria-valuemin="0"
-        aria-valuemax="100"
-      >
-        <div class="progress-bar" style="width: 25%"></div>
-      </div>
-      <span class="text-data col-2 text-center">%</span>
-    </div>
+  <div class="card g-col-12 d-flex flex-column p-2 gap-2" id='distribution-age-chart'>    
   </div>
 
   <div class="g-col-12 g-col-md-4 grid">
@@ -401,7 +315,7 @@ const generateAudienceHTML = (gridHTML, influcard) => {
     </div>
     <!-- COL COUNTRY GRAPHIC -->
     <div class="card g-col-12 g-col-md-6">
-      <div class="d-flex flex-column p-2 gap-3">
+      <div class="d-flex flex-column p-2 gap-4">
         <span class="graphic-tittle">Distribución por país</span>
         <!-- graphic country-distribution -->
         <div class="age-graphic d-flex flex-row align-items-center">
@@ -410,42 +324,42 @@ const generateAudienceHTML = (gridHTML, influcard) => {
               class="text-icons"
               src="../img/espana.png"
               alt="Icono"
-            />pais</span
+            />ES</span
           >
           <div
             class="progress col-8"
             role="progressbar"
             aria-label="Example with label"
-            aria-valuenow="25"
+            aria-valuenow="47.37"
             aria-valuemin="0"
             aria-valuemax="100"
           >
             <div
               class="progress-bar bg-orange"
-              style="width: 25%"
+              style="width: 47.37%"
             ></div>
           </div>
-          <span class="text-data col-2 text-center">%</span>
+          <span class="text-data col-2 text-center">47.37%</span>
         </div>
         <div class="age-graphic d-flex flex-row align-items-center">
           <span class="text-data col-2 text-center">
             <img class="text-icons" src="../img/eeuu.png" alt="Icono" />
-            pais</span
+            US</span
           >
           <div
             class="progress col-8"
             role="progressbar"
             aria-label="Example with label"
-            aria-valuenow="25"
+            aria-valuenow="11.84"
             aria-valuemin="0"
             aria-valuemax="100"
           >
             <div
               class="progress-bar bg-orange"
-              style="width: 25%"
+              style="width: 11.84%"
             ></div>
           </div>
-          <span class="text-data col-2 text-center">%</span>
+          <span class="text-data col-2 text-center">11.84%</span>
         </div>
         <div class="age-graphic d-flex flex-row align-items-center">
           <span class="text-data col-2 text-center"
@@ -453,22 +367,22 @@ const generateAudienceHTML = (gridHTML, influcard) => {
               class="text-icons"
               src="../img/mexico.png"
               alt="Icono"
-            />pais</span
+            />MX</span
           >
           <div
             class="progress col-8"
             role="progressbar"
             aria-label="Example with label"
-            aria-valuenow="25"
+            aria-valuenow="5.67"
             aria-valuemin="0"
             aria-valuemax="100"
           >
             <div
               class="progress-bar bg-orange"
-              style="width: 25%"
+              style="width: 5.67%"
             ></div>
           </div>
-          <span class="text-data col-2 text-center">%</span>
+          <span class="text-data col-2 text-center">5.67%</span>
         </div>
         <div class="age-graphic d-flex flex-row align-items-center">
           <span class="text-data col-2 text-center"
@@ -477,22 +391,22 @@ const generateAudienceHTML = (gridHTML, influcard) => {
               src="../img/francia.png"
               alt="Icono"
             />
-            pais</span
+            FR</span
           >
           <div
             class="progress col-8"
             role="progressbar"
             aria-label="Example with label"
-            aria-valuenow="25"
+            aria-valuenow="4.05"
             aria-valuemin="0"
             aria-valuemax="100"
           >
             <div
               class="progress-bar bg-orange"
-              style="width: 25%"
+              style="width: 4.05%"
             ></div>
           </div>
-          <span class="text-data col-2 text-center">%</span>
+          <span class="text-data col-2 text-center">4.05%</span>
         </div>
         <div class="age-graphic d-flex flex-row align-items-center">
           <span class="text-data col-2 text-center"
@@ -500,48 +414,51 @@ const generateAudienceHTML = (gridHTML, influcard) => {
               class="text-icons"
               src="../img/italia.png"
               alt="Icono"
-            />pais</span
+            />IT</span
           >
           <div
             class="progress col-8"
             role="progressbar"
             aria-label="Warning example"
-            aria-valuenow="25"
+            aria-valuenow="3.88"
             aria-valuemin="0"
             aria-valuemax="100"
           >
             <div
               class="progress-bar bg-orange"
-              style="width: 25%"
+              style="width: 3.88%"
             ></div>
           </div>
-          <span class="text-data col-2 text-center">%</span>
+          <span class="text-data col-2 text-center">3.88%</span>
         </div>
         <div class="age-graphic d-flex flex-row align-items-center">
           <span class="text-data col-2 text-center"
             ><img class="text-icons" src="../img/cargando.png"
-            alt="Icono" / >pais</span
+            alt="Icono" / >Otro</span
           >
           <div
             class="progress col-8"
             role="progressbar"
             aria-label="Example with label"
-            aria-valuenow="25"
+            aria-valuenow="27.19"
             aria-valuemin="0"
             aria-valuemax="100"
           >
             <div
               class="progress-bar bg-orange"
-              style="width: 25%"
+              style="width: 27.19%"
             ></div>
           </div>
-          <span class="text-data col-2 text-center">%</span>
+          <span class="text-data col-2 text-center">27.19%</span>
         </div>
       </div>
     </div>
   </div>
   `;
   gridHTML.appendChild(allHTML);
+
+  const distributionAgeCard = document.getElementById("distribution-age-chart");
+  generateDistributionAgeChart(influcard.insightsAge, distributionAgeCard);
 
   const pieChartCard = document.getElementById("pieChart");
   generatePieChart([], pieChartCard);
@@ -581,7 +498,7 @@ const generatePublicationsHTML = (gridHTML, influcard) => {
   <!-- COL BRANDS GRAPHIC -->
   <div class="card g-col-12 d-flex flex-column p-2">
     <span class="graphic-tittle">Marcas con las que ha trabajado</span>
-    <div class="d-flex flex-wrap gap-2 align-items-center justify-content-center" id="brand-list"></div>
+    <div class="d-flex flex-wrap gap-3 align-items-center justify-content-center" id="brand-list"></div>
   </div>
   `;
   gridHTML.appendChild(allHTML);
@@ -746,4 +663,79 @@ const generateBrandsHtml = (imageList = [], elementHTML) => {
     brandImgHTML.alt = imageItem.name;
     elementHTML.appendChild(brandImgHTML);
   });
+};
+
+const generateDistributionAgeChart = (insightsList, elementHtml) => {
+  const titleHtml = document.createElement("div");
+  titleHtml.classList.add("graphic-tittle");
+  titleHtml.innerText = "Distribución por edad";
+  elementHtml.appendChild(titleHtml);
+
+  const insightsByAgeGeneralList = groupAndCalculatePercentages(insightsList);
+
+  insightsByAgeGeneralList.map((insight) => {
+    const insightsContainerHtml = document.createElement("div");
+    insightsContainerHtml.classList.add(
+      "age-graphic",
+      "d-flex",
+      "flex-row",
+      "align-items-center"
+    );
+    insightsContainerHtml.innerHTML = `
+      <span class="text-data col-2 text-center">${insight.age_range}</span>
+      <div
+         class="progress col-8"
+         role="progressbar"
+         aria-label="Example with label"
+         aria-valuenow="${insight.percentage}"
+         aria-valuemin="0"
+       aria-valuemax="100"
+       >
+       <div class="progress-bar" style="width: ${insight.percentage}%"></div>
+       </div>
+        <span class="text-data col-2 text-center">${insight.percentage}%</span>
+    `;
+    elementHtml.appendChild(insightsContainerHtml);
+  });
+};
+
+const groupAndCalculatePercentages = (insightsAge) => {
+  // Crear un objeto para almacenar las sumas de cantidades por rango de edad
+  const ageGroups = {};
+
+  // Iterar a través de los datos de insightsAge
+  insightsAge.forEach((item) => {
+    const ageRange = item.age_range;
+    const amount = parseInt(item.amount);
+
+    // Sumar la cantidad al rango de edad correspondiente o crearlo si no existe
+    if (!ageGroups[ageRange]) {
+      ageGroups[ageRange] = amount;
+    } else {
+      ageGroups[ageRange] += amount;
+    }
+  });
+
+  // Calcular los porcentajes para cada grupo de edad
+  const totalAmount = Object.values(ageGroups).reduce(
+    (total, amount) => total + amount,
+    0
+  );
+  const ageGroupedPercentages = {};
+
+  for (const ageRange in ageGroups) {
+    const amount = ageGroups[ageRange];
+    const percentage = (amount / totalAmount) * 100;
+    ageGroupedPercentages[ageRange] = percentage;
+  }
+
+  // Convertir el resultado en una lista de objetos
+  const result = Object.entries(ageGroupedPercentages).map(
+    ([ageRange, percentage]) => ({
+      age_range: ageRange,
+      percentage: parseFloat(percentage.toFixed(2)), // Redondear a dos decimales
+    })
+  );
+
+  return result;
 };
