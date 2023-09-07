@@ -215,37 +215,14 @@ const generateHeader = (influencerHTML, influcard) => {
     window.location.href = "/index.html";
   });
 
-  // document.addEventListener("DOMContentLoaded", () => {
-  //   const downloadButton = document.getElementById("downloadButton");
-
-  //   downloadButton.addEventListener("click", () => {
-  //     // Configurar las dimensiones deseadas (1720x900 píxeles)
-  //     const width = 1720;
-  //     const height = 900;
-
-  //     // Configurar la escala para ajustar las dimensiones
-  //     const scale = 2; // Cambia esto según sea necesario
-
-  //     // Calcular las dimensiones del lienzo según la escala
-  //     const canvasWidth = width * scale;
-  //     const canvasHeight = height * scale;
-
-  //     // Capturar el contenido de la pantalla con las dimensiones personalizadas
-  //     html2canvas(document.body, {
-  //       width: canvasWidth,
-  //       height: canvasHeight,
-  //       scale: scale,
-  //     }).then((canvas) => {
-  //       // Crear un enlace para la descarga
-  //       const downloadLink = document.createElement("a");
-  //       downloadLink.href = canvas.toDataURL("image/png"); // Convertir el lienzo en una URL de imagen PNG
-  //       downloadLink.download = "captura_de_pantalla.png"; // Nombre del archivo a descargar
-  //       document.body.appendChild(downloadLink);
-  //       downloadLink.click(); // Simular un clic en el enlace
-  //       document.body.removeChild(downloadLink); // Quitar el enlace después de la descarga
-  //     });
-  //   });
-  // });
+  const downloadButton = document.getElementById("downloadButton");
+  downloadButton.addEventListener("click", () => {
+    showLoader();
+    setTimeout(() => {
+      downloadDashboardPrintScreen();
+      hideLoader();
+    }, 1000);
+  });
 };
 
 // * Body
@@ -738,4 +715,50 @@ const groupAndCalculatePercentages = (insightsAge) => {
   );
 
   return result;
+};
+
+const downloadDashboardPrintScreen = () => {
+  const width = 1720;
+  const height = 900;
+
+  const scale = 1;
+
+  const canvasWidth = width * scale;
+  const canvasHeight = height * scale;
+
+  html2canvas(document.body, {
+    width: canvasWidth,
+    height: canvasHeight,
+    scale: scale,
+  }).then((canvas) => {
+    const downloadLink = document.createElement("a");
+    downloadLink.href = canvas.toDataURL("image/png");
+    downloadLink.download = "captura_de_pantalla.png";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  });
+};
+
+const showLoader = () => {
+  let timerInterval;
+  Swal.fire({
+    title: "Loading...",
+    timer: 2000,
+    didOpen: () => {
+      Swal.showLoading();
+      const b = Swal.getHtmlContainer().querySelector("b");
+      timerInterval = setInterval(() => {
+        b.textContent = Swal.getTimerLeft();
+      }, 100);
+    },
+    willClose: () => {
+      clearInterval(timerInterval);
+    },
+  }).then((result) => {
+    /* Read more about handling dismissals below */
+    if (result.dismiss === Swal.DismissReason.timer) {
+      console.log("I was closed by the timer");
+    }
+  });
 };
