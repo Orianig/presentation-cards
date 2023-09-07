@@ -147,23 +147,37 @@ html {
   background-color: #159cd2;
 }
 
-#chartdiv {
-  width: 100%;
-  height: 13.5rem;
-  align-self: center;
+.circular-progress {
+  position: relative;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
 }
 
-#racediv {
-  width: 100%;
-  height: 10rem;
+.circular-progress.progress-blue {
+  background: rgb(38, 85, 116);
 }
 
-#timediv {
-  width: 100%;
-  height: 100px;
+.circular-progress.progress-orange {
+  background: conic-gradient(from 65deg, orange, rgb(206, 206, 206));
 }
 
-#engdiv {
-  width: 100%;
-  height: 200px;
+.circular-progress.progress-aqua {
+  background: conic-gradient(from 40deg, aqua, rgb(206, 206, 206));
+}
+
+.circular-progress:before {
+  content: "";
+  position: absolute;
+  height: 84%;
+  width: 84%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+}
+
+.circular-progress .value-container {
+  position: relative;
+  font-size: 0.7rem;
 }

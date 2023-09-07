@@ -40,6 +40,10 @@
     <script src="//cdn.amcharts.com/lib/5/themes/Responsive.js"></script>
 
     <script src="/assets/js/pieChart.js"></script>
+    <script src="/assets/js/timeChart.js"></script>
+    <script src="/assets/js/raceChart.js"></script>
+    <script src="/assets/js/engagementChart.js"></script>
+    <script src="/assets/js/progressBar.js"></script>
   </head>
 
   <body>
@@ -87,23 +91,26 @@
           class="col-12 col-md-4 order-2 order-md-1 d-flex flex-row justify-content-evenly"
         >
           <div class="col-3 d-flex flex-column align-items-center">
-            <div class="d-flex flex-column align-items-center">
-              <span class="text-data text-primary">Reach</span
-              ><span>GRAFICO</span>
-            </div>
+            <div class="text-data text-primary">Reach</div>
+            <span class="circular-progress progress-blue">
+              <div class="value-container"></div>
+            </span>
           </div>
           <div class="col-3 d-flex flex-column align-items-center">
-            <div class="d-flex flex-column align-items-center">
-              <span class="text-data text-warning">Relevance</span
-              ><span>GRAFICO</span>
-            </div>
+            <div class="text-data text-warning">Relevance</div>
+            <span class="circular-progress progress-orange">
+              <div class="value-container"></div>
+            </span>
           </div>
           <div class="col-3 d-flex flex-column align-items-center">
-            <div class="d-flex flex-column align-items-center">
-              <span class="text-data text-info">Resonance</span
-              ><span>GRAFICO</span>
-            </div>
+            <div class="text-data text-info">Resonance</div>
+            <span class="circular-progress progress-aqua">
+              <div class="value-container"></div>
+            </span>
           </div>
+          <script>
+            generateHeaderGaugeCharts();
+          </script>
         </div>
         <!-- Columna 3 (en dispositivos móviles, se coloca segundo) -->
         <div class="col-12 col-md-4 d-flex order-1 order-md-2">
@@ -408,12 +415,16 @@
             </div>
             <span class="col-tittle">PUBLICACIONES</span>
           </div>
-          <!-- COL TERRITORY GRAPHIC -->
+          <!-- COL INTEREST GRAPHIC -->
           <div class="card g-col-12 d-flex flex-column p-2">
             <span class="graphic-tittle"
               >Distribución de sus publicaciones por territorios
             </span>
             <div id="racediv"></div>
+            <script>
+              const raceChartCard = document.getElementById("racediv");
+              generateRaceDivChart([], raceChartCard);
+            </script>
           </div>
           <!-- COL HORARY GRAPHIC -->
           <div class="card g-col-12 d-flex flex-column p-2">
@@ -421,6 +432,10 @@
               >Franja horaria de sus publicaciones</span
             >
             <div id="timediv"></div>
+            <script>
+              const timeChartCard = document.getElementById("timediv");
+              generateTimeChart([], timeChartCard);
+            </script>
           </div>
           <!-- COL BRANDS GRAPHIC -->
           <div class="card g-col-12 d-flex flex-column p-2">
@@ -544,14 +559,13 @@
               >Engagement rate según día de publicación</span
             >
             <div id="engdiv"></div>
+            <script>
+              const engChartCard = document.getElementById("engdiv");
+              generateEngChart([], engChartCard);
+            </script>
           </div>
         </div>
       </div>
     </div>
-    <script src="../js/details.js"></script>
-    <script src="../js/pieChart.js"></script>
-    <script src="../js/raceChart.js"></script>
-    <script src="../js/timeChart.js"></script>
-    <script src="../js/engagementChart.js"></script>
   </body>
 </html>

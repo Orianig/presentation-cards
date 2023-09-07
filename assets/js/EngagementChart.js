@@ -1,6 +1,14 @@
-am5.ready(function () {
-  // Create root element
-  var root = am5.Root.new("engdiv");
+const generateEngChart = (influcard, elementHTML) => {
+  // Crear un elemento div para el gráfico de pastel
+  elementHTML.style.width = "100%";
+  elementHTML.style.height = "11rem";
+
+  // Create root and chart
+  const elementHTML_ID = "engdiv";
+  elementHTML.setAttribute("id", elementHTML_ID);
+  var root = am5.Root.new(elementHTML_ID);
+
+  var myTheme = am5.Theme.new(root);
 
   // Set themes
   root.setThemes([am5themes_Animated.new(root)]);
@@ -115,7 +123,6 @@ am5.ready(function () {
   series.data.setAll(data);
 
   // Make stuff animate on load
-  // https://www.amcharts.com/docs/v5/concepts/animations/
   series.appear(1000);
   chart.appear(1000, 100);
-});
+};

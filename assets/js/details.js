@@ -24,10 +24,6 @@ const generateInfluencerDashboardHTML = () => {
   const { influcard } = influencer;
   generateHeader(influencerHTML, influcard);
   generateGrid(influencerHTML, influcard);
-
-  // const pieChartCard = document.createElement("div");
-  // influencerHTML.appendChild(pieChartCard);
-  // generatePieChart([], pieChartCard);
 };
 
 // * Header
@@ -56,7 +52,7 @@ const generateHeader = (influencerHTML, influcard) => {
   pictureHTML.classList.add("picture-container", "position-relative");
 
   let pictureProfileHTML = document.createElement("img");
-  pictureProfileHTML.classList.add("picture-profile", "mb-2");
+  pictureProfileHTML.classList.add("picture-profile", "mb-2", "ms-4");
   pictureProfileHTML.src = influcard.account_picture;
   pictureProfileHTML.alt = "account picture";
 
@@ -84,21 +80,26 @@ const generateHeader = (influencerHTML, influcard) => {
     "d-flex",
     "flex-column",
     "justify-content-start",
-    "ps-2"
+    "ps-2",
+    "ms-2"
   );
-  col1Div2HTML.innerHTML = `<span class="text-data-influName">influencerName</span>
-  <div class="d-flex flex-row">
+  col1Div2HTML.innerHTML = `<span class="text-data-influName">${
+    influcard.name
+  }</span>
+  <div class="d-flex flex-row align-items-center mb-2">
     <img class="text-icons" src="../img/instagram.png" alt="Icono" />
-    <span class="text-data-influRed mb-2">Username</span>
+    <span class="text-data-influRed">${influcard.username}</span>
   </div>
   <div class="d-flex flex-row">
     <img class="text-icons" src="../img/espana.png" alt="Icono" />
     <span class="text-data">
-      PAIS -
-      <i class="female-icon fa-solid fa-venus">
-        <i class="male-icon fa-solid fa-mars"> </i
-      ></i>
-      sexo, edad
+        ${influcard.country} -
+        ${
+          influcard.gender === 1
+            ? `<i class="male-icon fa-solid fa-mars"></i>`
+            : `<i class="female-icon fa-solid fa-venus"></i>`
+        }
+        ${influcard.gender === 1 ? "Hombre" : "Mujer"}, ${influcard.age} años
     </span>
   </div>`;
   headerDiv1HTML.appendChild(col1Div2HTML);
@@ -123,8 +124,12 @@ const generateHeader = (influencerHTML, influcard) => {
     "flex-column",
     "align-items-center"
   );
-  col2Div2HTML.innerHTML =
-    '<div class="d-flex flex-column align-items-center"><span class="text-data text-primary">Reach</span><span>GRAFICO</span></div>';
+  col2Div2HTML.innerHTML = `<div class="col-3 d-flex flex-column align-items-center">
+    <div class="text-data text-primary">Reach</div>
+    <span class="circular-progress progress-blue">
+      <div class="value-container"></div>
+    </span>
+  </div>`;
   col2Div1HTML.appendChild(col2Div2HTML);
 
   let col2Div3HTML = document.createElement("div");
@@ -134,8 +139,12 @@ const generateHeader = (influencerHTML, influcard) => {
     "flex-column",
     "align-items-center"
   );
-  col2Div3HTML.innerHTML =
-    '<div class="d-flex flex-column align-items-center"><span class="text-data text-info">Resonance</span><span>GRAFICO</span></div>';
+  col2Div3HTML.innerHTML = `<div class="col-3 d-flex flex-column align-items-center">
+  <div class="text-data text-warning">Relevance</div>
+  <span class="circular-progress progress-orange">
+    <div class="value-container"></div>
+  </span>
+</div>`;
   col2Div1HTML.appendChild(col2Div3HTML);
 
   let col2Div4HTML = document.createElement("div");
@@ -145,8 +154,12 @@ const generateHeader = (influencerHTML, influcard) => {
     "flex-column",
     "align-items-center"
   );
-  col2Div4HTML.innerHTML =
-    '<div class="d-flex flex-column align-items-center"><span class="text-data text-info">Resonance</span><span>GRAFICO</span></div>';
+  col2Div4HTML.innerHTML = `<div class="col-3 d-flex flex-column align-items-center">
+    <div class="text-data text-info">Resonance</div>
+    <span class="circular-progress progress-aqua">
+      <div class="value-container"></div>
+    </span>
+  </div>`;
   col2Div1HTML.appendChild(col2Div4HTML);
   headerHTML.appendChild(col2Div1HTML);
 
@@ -177,11 +190,11 @@ const generateHeader = (influencerHTML, influcard) => {
     "mb-md-0",
     "mb-1"
   );
-  col3Div2HTML.innerHTML = `<span class="text-data d-flex align-items-center">
-  <i class="fa-solid fa-right-from-bracket pe-2"></i>Salir
+  col3Div2HTML.innerHTML = `<span id="exit" class="cursor-pointer text-data d-flex align-items-center" style="cursor: pointer;">
+  <i class="fa-solid fa-right-from-bracket pe-2 cursor-pointer"></i>Salir
 </span>
-<span class="text-data d-flex align-items-center"
-  ><i class="fa-solid fa-download pe-2"></i>Descargar
+<span id="downloadButton" class="cursor-pointer text-data d-flex align-items-center" style="cursor: pointer;"
+  ><i class="fa-solid fa-download pe-2 cursor-pointer"></i>Descargar
   influcard</span
 >
 <span class="text-data d-flex align-items-center"
@@ -193,6 +206,44 @@ const generateHeader = (influencerHTML, influcard) => {
   col3Div1HTML.appendChild(col3Div2HTML);
   headerHTML.appendChild(col3Div1HTML);
   influencerHTML.appendChild(headerHTML);
+  generateHeaderGaugeCharts();
+
+  const exitElement = document.getElementById("exit");
+  exitElement.addEventListener("click", () => {
+    window.location.href = "/index.html";
+  });
+
+  // document.addEventListener("DOMContentLoaded", () => {
+  //   const downloadButton = document.getElementById("downloadButton");
+
+  //   downloadButton.addEventListener("click", () => {
+  //     // Configurar las dimensiones deseadas (1720x900 píxeles)
+  //     const width = 1720;
+  //     const height = 900;
+
+  //     // Configurar la escala para ajustar las dimensiones
+  //     const scale = 2; // Cambia esto según sea necesario
+
+  //     // Calcular las dimensiones del lienzo según la escala
+  //     const canvasWidth = width * scale;
+  //     const canvasHeight = height * scale;
+
+  //     // Capturar el contenido de la pantalla con las dimensiones personalizadas
+  //     html2canvas(document.body, {
+  //       width: canvasWidth,
+  //       height: canvasHeight,
+  //       scale: scale,
+  //     }).then((canvas) => {
+  //       // Crear un enlace para la descarga
+  //       const downloadLink = document.createElement("a");
+  //       downloadLink.href = canvas.toDataURL("image/png"); // Convertir el lienzo en una URL de imagen PNG
+  //       downloadLink.download = "captura_de_pantalla.png"; // Nombre del archivo a descargar
+  //       document.body.appendChild(downloadLink);
+  //       downloadLink.click(); // Simular un clic en el enlace
+  //       document.body.removeChild(downloadLink); // Quitar el enlace después de la descarga
+  //     });
+  //   });
+  // });
 };
 
 // * Body
@@ -527,7 +578,7 @@ const generatePublicationsHTML = (gridHTML, influcard) => {
   </div>
   <!-- COL BRANDS GRAPHIC -->
   <div class="card g-col-12 d-flex flex-column p-2">
-    <span class="graphic-tittle">Marcas con las que ha trabajado</span>
+    <span class="graphic-tittle">Marcas con las que ha trabajado</span> 
   </div>
   `;
   gridHTML.appendChild(allHTML);
@@ -538,6 +589,7 @@ const generatePublicationsHTML = (gridHTML, influcard) => {
   const timeChartCard = document.getElementById("timediv");
   generateTimeChart(influcard, timeChartCard);
 };
+
 const generatePerformanceHTML = (gridHTML, influcard) => {
   let allHTML = document.createElement("div");
   allHTML.classList.add(
@@ -550,11 +602,128 @@ const generatePerformanceHTML = (gridHTML, influcard) => {
 
   allHTML.innerHTML = `
   <div class="card d-flex flex-row align-items-center gap-2 p-2">
-            <div class="circle-element">
-              <i class="text-icon-color fa-solid fa-chart-line"></i>
-            </div>
-            <span class="col-tittle">DESEMPEÑO</span>
-          </div>
+  <div class="circle-element">
+    <i class="text-icon-color fa-solid fa-chart-line"></i>
+  </div>
+  <span class="col-tittle">DESEMPEÑO</span>
+</div>
+<!-- III COL - I ROW -->
+<div class="card d-flex flex-column gap-2 p-2">
+  <div
+    class="d-flex flex-row align-items-center justify-content-between"
+  >
+    <div class="d-flex gap-2 align-items-center">
+      <div class="circle-element-card">
+        <i class="fa-solid fa-users"></i>
+      </div>
+      <span class="text-cards">Audiencia</span>
+    </div>
+    <span class="text-cards">CANTIDAD</span>
+  </div>
+  <div
+    class="d-flex flex-row align-items-center justify-content-between"
+  >
+    <div class="d-flex flex-row gap-2 align-items-center">
+      <div class="circle-element-card">
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <span class="text-cards">Alcance</span>
+    </div>
+    <span class="text-cards">CANTIDAD</span>
+  </div>
+</div>
+<!-- III COL - II ROW -->
+<div class="card d-flex flex-column gap-2 p-2">
+  <div
+    class="d-flex flex-row align-items-center justify-content-between"
+  >
+    <div class="d-flex gap-2 align-items-center">
+      <div class="circle-element-card bg-impress">
+        <i class="fa-solid fa-fingerprint"></i>
+      </div>
+      <span class="text-cards">Impresiones</span>
+    </div>
+    <span class="text-cards">CANTIDAD</span>
+  </div>
+  <div class="d-flex flex-row">
+    <div
+      class="col-6 d-flex flex-column align-items-center border-end"
+    >
+      <span class="text-cards">cantidad</span
+      ><span class="text-data">Alcance</span>
+    </div>
+    <div class="col-6 d-flex flex-column align-items-center">
+      <span class="text-cards">cantidad</span
+      ><span class="text-data">Audiencia</span>
+    </div>
+  </div>
+</div>
+<!-- III COL - III ROW -->
+<div class="card d-flex flex-column gap-2 p-2">
+  <div
+    class="d-flex flex-row align-items-center justify-content-between"
+  >
+    <div class="d-flex gap-2 align-items-center">
+      <div class="circle-element-card bg-rep">
+        <i class="fa-solid fa-play"></i>
+      </div>
+      <span class="text-cards">Reproducciones</span>
+    </div>
+    <span class="text-cards">CANTIDAD</span>
+  </div>
+  <div class="d-flex flex-row">
+    <div
+      class="col-6 d-flex flex-column align-items-center border-end"
+    >
+      <span class="text-cards">cantidad</span
+      ><span class="text-data">Alcance</span>
+    </div>
+    <div class="col-6 d-flex flex-column align-items-center">
+      <span class="text-cards">cantidad</span
+      ><span class="text-data">Audiencia</span>
+    </div>
+  </div>
+</div>
+<!-- III COL - IV ROW -->
+<div class="card d-flex flex-column gap-2 p-2">
+  <div
+    class="d-flex flex-row align-items-center justify-content-between"
+  >
+    <div class="d-flex gap-2 align-items-center">
+      <div class="circle-element-card bg-eng">
+        <i class="fa-solid fa-heart"></i>
+      </div>
+      <span class="text-cards">Engagement</span>
+    </div>
+    <span class="text-cards">CANTIDAD</span>
+  </div>
+  <div class="d-flex flex-row">
+    <div
+      class="col-6 d-flex flex-column align-items-center border-end"
+    >
+      <span class="text-cards">cantidad</span
+      ><span class="text-data">Alcance</span>
+    </div>
+    <div class="col-6 d-flex flex-column align-items-center">
+      <span class="text-cards">cantidad</span
+      ><span class="text-data">Audiencia</span>
+    </div>
+  </div>
+</div>
+<!-- III COL - V ROW -->
+<div class="card g-col-12 d-flex flex-column p-2">
+  <span class="graphic-tittle"
+    >Engagement rate según día de publicación</span
+  >
+  <div id="engdiv"></div>
+  <script>
+    const engChartCard = document.getElementById("engdiv");
+    generateEngChart([], engChartCard);
+  </script>
+</div>
   `;
   gridHTML.appendChild(allHTML);
+
+  const engChartCard = document.getElementById("engdiv");
+  generateEngChart(influcard, engChartCard);
 };
