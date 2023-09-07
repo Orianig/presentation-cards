@@ -57,7 +57,11 @@ const generateInfluencerListHTML = () => {
     figureHTML.innerHTML = `<img class='picture mb-2' src='${influencer.influcard.account_picture}' alt='account picture'/><div class='text-picture'><p>Ver Influcard</p></div>`;
     pictureHTML.appendChild(figureHTML);
     figureHTML.addEventListener("click", () => {
-      window.location.href = "./assets/pages/details.html";
+      showLoader();
+      setTimeout(() => {
+        window.location.href = "./assets/pages/details.html";
+        hideLoader();
+      }, 1000);
     });
 
     // influencer info
@@ -158,5 +162,28 @@ const generateInfluencerListHTML = () => {
 
     cardHTML.appendChild(cardRightSideHTML);
     cardsContainerHTML.appendChild(cardHTML);
+  });
+};
+
+const showLoader = () => {
+  let timerInterval;
+  Swal.fire({
+    title: "Loading...",
+    timer: 2000,
+    didOpen: () => {
+      Swal.showLoading();
+      const b = Swal.getHtmlContainer().querySelector("b");
+      timerInterval = setInterval(() => {
+        b.textContent = Swal.getTimerLeft();
+      }, 100);
+    },
+    willClose: () => {
+      clearInterval(timerInterval);
+    },
+  }).then((result) => {
+    /* Read more about handling dismissals below */
+    if (result.dismiss === Swal.DismissReason.timer) {
+      console.log("I was closed by the timer");
+    }
   });
 };

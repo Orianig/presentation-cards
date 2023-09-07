@@ -42,15 +42,16 @@ generateTimeChart = (influcard, elementHTML) => {
   );
 
   // Create axes
-  var yRenderer = am5xy.AxisRendererY.new(root, {});
-  yRenderer.grid.template.set("visible", false);
-  yRenderer.labels.template.setAll("fontSize", 0.1);
+  var yRenderer = am5xy.AxisRendererY.new(root, { minGridDistance: 10 });
+  yRenderer.grid.template.set("location", 1);
+  yRenderer.labels.template.set("fontSize", 10);
 
   var yAxis = chart.yAxes.push(
     am5xy.CategoryAxis.new(root, {
+      maxDeviation: 0,
       categoryField: "name",
+      paddingRight: 12,
       renderer: yRenderer,
-      paddingRight: 30,
     })
   );
 
