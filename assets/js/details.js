@@ -33,7 +33,9 @@ const generateHeader = (influencerHTML, influcard) => {
     "d-flex",
     "flex-wrap",
     "justify-content-between",
-    "mt-4"
+    "mt-2",
+    "mb-4",
+    "mb-md-0"
   );
   // COL I
   // divs
@@ -126,7 +128,7 @@ const generateHeader = (influencerHTML, influcard) => {
   );
   col2Div2HTML.innerHTML = `<div class="col-3 d-flex flex-column align-items-center">
     <div class="text-data text-primary">Reach</div>
-    <span class="circular-progress progress-blue">
+    <span class="mt-2 circular-progress progress-blue">
       <div class="value-container"></div>
     </span>
   </div>`;
@@ -141,7 +143,7 @@ const generateHeader = (influencerHTML, influcard) => {
   );
   col2Div3HTML.innerHTML = `<div class="col-3 d-flex flex-column align-items-center">
   <div class="text-data text-warning">Relevance</div>
-  <span class="circular-progress progress-orange">
+  <span class="mt-2 circular-progress progress-orange">
     <div class="value-container"></div>
   </span>
 </div>`;
@@ -156,7 +158,7 @@ const generateHeader = (influencerHTML, influcard) => {
   );
   col2Div4HTML.innerHTML = `<div class="col-3 d-flex flex-column align-items-center">
     <div class="text-data text-info">Resonance</div>
-    <span class="circular-progress progress-aqua">
+    <span class="mt-2 circular-progress progress-aqua">
       <div class="value-container"></div>
     </span>
   </div>`;
@@ -284,19 +286,19 @@ const generateAudienceHTML = (gridHTML, influcard) => {
     <span
       class="text-data col-4 d-flex flex-column align-items-center justify-content-center"
       >Audiencia<i class="mt-1 mb-1 fa-solid fa-users"></i
-      ><span class="text-cards">CANTIDAD</span></span
+      ><span class="text-cards">${influcard.followers_formated}</span></span
     >
     <span
       class="text-data col-4 d-flex flex-column align-items-center justify-content-center"
       >Seguidores Fake<i class="mt-1 mb-1 fa-solid fa-users"></i
-      ><span class="text-cards">CANTIDAD</span></span
+      ><span class="text-cards">${influcard.fake_followers_formated}%</span></span
     >
-    <span
+    <span 
       class="text-data col-4 d-flex flex-column align-items-center justify-content-center"
       >Audiencia Real<i
         class="mt-1 mb-1 fa-solid fa-users opacity-50"
       ></i
-      ><span class="text-cards">CANTIDAD</span></span
+      ><span class="text-cards">${influcard.real_followers_formated}</span></span
     >
   </div>
   <!-- COL AGE GRAPHIC -->
@@ -579,7 +581,7 @@ const generatePublicationsHTML = (gridHTML, influcard) => {
   <!-- COL BRANDS GRAPHIC -->
   <div class="card g-col-12 d-flex flex-column p-2">
     <span class="graphic-tittle">Marcas con las que ha trabajado</span>
-    <div class="d-flex flex-wrap gap-4 align-items-center justify-content-center" id="brand-list"></div>
+    <div class="d-flex flex-wrap gap-2 align-items-center justify-content-center" id="brand-list"></div>
   </div>
   `;
   gridHTML.appendChild(allHTML);
@@ -622,7 +624,7 @@ const generatePerformanceHTML = (gridHTML, influcard) => {
       </div>
       <span class="text-cards">Audiencia</span>
     </div>
-    <span class="text-cards">CANTIDAD</span>
+    <span class="text-cards">${influcard.followers_formated}</span>
   </div>
   <div
     class="d-flex flex-row align-items-center justify-content-between"
@@ -633,7 +635,7 @@ const generatePerformanceHTML = (gridHTML, influcard) => {
       </div>
       <span class="text-cards">Alcance</span>
     </div>
-    <span class="text-cards">CANTIDAD</span>
+    <span class="text-cards">${influcard.reach_formated}</span>
   </div>
 </div>
 <!-- III COL - II ROW -->
@@ -647,17 +649,17 @@ const generatePerformanceHTML = (gridHTML, influcard) => {
       </div>
       <span class="text-cards">Impresiones</span>
     </div>
-    <span class="text-cards">CANTIDAD</span>
+    <span class="text-cards">${influcard.avg_impressions_formated}</span>
   </div>
   <div class="d-flex flex-row">
     <div
       class="col-6 d-flex flex-column align-items-center border-end"
     >
-      <span class="text-cards">cantidad</span
+      <span class="text-cards">126.1%</span
       ><span class="text-data">Alcance</span>
     </div>
     <div class="col-6 d-flex flex-column align-items-center">
-      <span class="text-cards">cantidad</span
+      <span class="text-cards">44.63%</span
       ><span class="text-data">Audiencia</span>
     </div>
   </div>
@@ -673,17 +675,17 @@ const generatePerformanceHTML = (gridHTML, influcard) => {
       </div>
       <span class="text-cards">Reproducciones</span>
     </div>
-    <span class="text-cards">CANTIDAD</span>
+    <span class="text-cards">${influcard.vplays_formated}</span>
   </div>
   <div class="d-flex flex-row">
     <div
       class="col-6 d-flex flex-column align-items-center border-end"
     >
-      <span class="text-cards">cantidad</span
+      <span class="text-cards">62%</span
       ><span class="text-data">Alcance</span>
     </div>
     <div class="col-6 d-flex flex-column align-items-center">
-      <span class="text-cards">cantidad</span
+      <span class="text-cards">21.6%</span
       ><span class="text-data">Audiencia</span>
     </div>
   </div>
@@ -699,17 +701,17 @@ const generatePerformanceHTML = (gridHTML, influcard) => {
       </div>
       <span class="text-cards">Engagement</span>
     </div>
-    <span class="text-cards">CANTIDAD</span>
+    <span class="text-cards">${influcard.engagement_formated}</span>
   </div>
   <div class="d-flex flex-row">
     <div
       class="col-6 d-flex flex-column align-items-center border-end"
     >
-      <span class="text-cards">cantidad</span
+      <span class="text-cards">${influcard.er_alcance}%</span
       ><span class="text-data">Alcance</span>
     </div>
     <div class="col-6 d-flex flex-column align-items-center">
-      <span class="text-cards">cantidad</span
+      <span class="text-cards">${influcard.er_audiencia}%</span
       ><span class="text-data">Audiencia</span>
     </div>
   </div>
@@ -739,7 +741,7 @@ const generateBrandsHtml = (imageList = [], elementHTML) => {
   }
   slicedImgList.map((imageItem) => {
     let brandImgHTML = document.createElement("img");
-    brandImgHTML.style.height = "60px";
+    brandImgHTML.style.height = "5rem";
     brandImgHTML.src = imageItem.image;
     brandImgHTML.alt = imageItem.name;
     elementHTML.appendChild(brandImgHTML);
