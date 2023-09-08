@@ -212,6 +212,7 @@ const generateHeader = (influencerHTML, influcard) => {
 
   const exitElement = document.getElementById("exit");
   exitElement.addEventListener("click", () => {
+    console.log(1);
     window.location.href = "../index.html";
   });
 
