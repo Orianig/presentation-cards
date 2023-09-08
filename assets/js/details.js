@@ -1,4 +1,4 @@
-const apiUrl = "../../assets/json/data.json";
+const apiUrl = "../assets/json/data.json";
 let influencer = {};
 
 // * event when html is loaded
