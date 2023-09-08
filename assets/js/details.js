@@ -212,7 +212,7 @@ const generateHeader = (influencerHTML, influcard) => {
 
   const exitElement = document.getElementById("exit");
   exitElement.addEventListener("click", () => {
-    window.location.href = "/index.html";
+    window.location.href = "../index.html";
   });
 
   const downloadButton = document.getElementById("downloadButton");
