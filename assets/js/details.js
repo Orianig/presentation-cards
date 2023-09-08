@@ -616,10 +616,6 @@ const generatePerformanceHTML = (gridHTML, influcard) => {
     >Engagement rate según día de publicación</span
   >
   <div id="engdiv"></div>
-  <script>
-    const engChartCard = document.getElementById("engdiv");
-    generateEngChart([], engChartCard);
-  </script>
 </div>
   `;
   gridHTML.appendChild(allHTML);
