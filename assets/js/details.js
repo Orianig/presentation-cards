@@ -33,9 +33,7 @@ const generateHeader = (influencerHTML, influcard) => {
     "d-flex",
     "flex-wrap",
     "justify-content-between",
-    "mt-2",
-    "mb-4",
-    "mb-md-0"
+    "p-2"
   );
   // COL I
   // divs
